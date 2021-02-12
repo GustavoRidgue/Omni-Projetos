@@ -10,7 +10,7 @@ public class NovoProjetoRequest {
     @NotNull // (message = "Campo nome do produto precisa ser preenchido*")
     private String nome;
     @NotNull // (message = "Campo descricao precisa ser preenchido*") @Max(250)
-    private String departamento;
+    private Long departamento;
     @NotNull // (message = "Campo URL do produto deve ser preenchido*")
     private String situacaoAtual;
     @NotNull // (message = "Campo endereço da imagem deve ser preenchido*")
@@ -26,11 +26,11 @@ public class NovoProjetoRequest {
         this.nome = nome;
     }
 
-    public String getDepartamento() {
+    public Long getDepartamento() {
         return departamento;
     }
 
-    public void setDepartamento(String departamento) {
+    public void setDepartamento(Long departamento) {
         this.departamento = departamento;
     }
 
@@ -59,12 +59,8 @@ public class NovoProjetoRequest {
     }
 
     public Projeto toProjeto() {
-//        Departamento departamento = new Departamento();
-//        departamento.setNome(this.departamento);
-
         Projeto projeto = new Projeto();
         projeto.setNome(this.nome);
-//        projeto.setDepartamento(departamento);
         projeto.setDataSolicitacao(LocalDate.now());
         projeto.setAnaliseSituacaoAtual(this.situacaoAtual);
         projeto.setDescricaoSituacaoDesejada(this.situacaoDesejada);

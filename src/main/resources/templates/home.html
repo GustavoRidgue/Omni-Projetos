@@ -92,12 +92,12 @@
 
                 <div class="row justify-content-center">
                     <div th:each="projeto : ${projetos}" class="card pside-0 col-xs-12 col-4 m-4" style="width: 18rem;">
-                        <div class="card-header">
+                        <div class="card-header alert alert-warning">
                             <h5 th:text="${projeto.nome}" class="card-title d-inline-block">Quitação de divídas</h5>
                             (<p th:text="${projeto.id}" class="mb-0 d-inline-block">id</p>)
                         </div>
                         <div class="card-body">
-<!--                            <h6 th:text="${projeto.departamento.nome}" class="card-subtitle mb-2 text-muted">Central de atendimento</h6>-->
+                            <h6 th:text="${projeto.departamento.nome}" class="card-subtitle mb-2 text-muted">Central de atendimento</h6>
                             <p th:text="${projeto.analiseSituacaoAtual}" class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                             <hr class="dropdown-divider">
                             <div>
