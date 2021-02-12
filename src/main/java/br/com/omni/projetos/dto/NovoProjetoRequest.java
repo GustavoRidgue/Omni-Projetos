@@ -5,6 +5,10 @@ import br.com.omni.projetos.model.Projeto;
 import com.sun.istack.NotNull;
 
 import java.time.LocalDate;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
+import java.util.Calendar;
+import java.util.Date;
 
 public class NovoProjetoRequest {
     @NotNull // (message = "Campo nome do produto precisa ser preenchido*")
@@ -17,6 +21,8 @@ public class NovoProjetoRequest {
     private String situacaoDesejada;
     @NotNull // (message = "Campo endereço da imagem deve ser preenchido*")
     private String solucao;
+
+    private static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
     public String getNome() {
         return nome;
@@ -61,7 +67,7 @@ public class NovoProjetoRequest {
     public Projeto toProjeto() {
         Projeto projeto = new Projeto();
         projeto.setNome(this.nome);
-        projeto.setDataSolicitacao(LocalDate.now());
+        projeto.setDataSolicitacao(LocalDate.now().format(formatter));
         projeto.setAnaliseSituacaoAtual(this.situacaoAtual);
         projeto.setDescricaoSituacaoDesejada(this.situacaoDesejada);
         projeto.setDescricaoSolucao(this.solucao);

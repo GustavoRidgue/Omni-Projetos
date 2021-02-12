@@ -9,7 +9,7 @@ public class Projeto {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nome;
-    private LocalDate dataSolicitacao;
+    private String dataSolicitacao;
     @ManyToOne
     private Departamento departamento;
     @Enumerated(EnumType.STRING)
@@ -34,11 +34,11 @@ public class Projeto {
         this.nome = nome;
     }
 
-    public LocalDate getDataSolicitacao() {
+    public String getDataSolicitacao() {
         return dataSolicitacao;
     }
 
-    public void setDataSolicitacao(LocalDate dataSolicitacao) {
+    public void setDataSolicitacao(String dataSolicitacao) {
         this.dataSolicitacao = dataSolicitacao;
     }
 
