@@ -2,6 +2,7 @@ package br.com.omni.projetos.dto;
 
 import br.com.omni.projetos.model.Departamento;
 import br.com.omni.projetos.model.Projeto;
+import br.com.omni.projetos.model.Regulatorio;
 import com.sun.istack.NotNull;
 
 import java.time.LocalDate;
@@ -21,6 +22,8 @@ public class NovoProjetoRequest {
     private String situacaoDesejada;
     @NotNull // (message = "Campo endereço da imagem deve ser preenchido*")
     private String solucao;
+    @NotNull // (message = "Campo endereço da imagem deve ser preenchido*")
+    private boolean regulatorio;
 
 //    private static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
@@ -64,11 +67,17 @@ public class NovoProjetoRequest {
         this.solucao = solucao;
     }
 
+    public boolean isRegulatorio() {
+        return regulatorio;
+    }
+
+    public void setRegulatorio(boolean regulatorio) {
+        this.regulatorio = regulatorio;
+    }
+
     public Projeto toProjeto() {
         Projeto projeto = new Projeto();
         projeto.setNome(this.nome);
-//        projeto.setDataSolicitacao(LocalDate.now());
-//        projeto.setDataSolicitacao(LocalDate.now().format(formatter));
         projeto.setAnaliseSituacaoAtual(this.situacaoAtual);
         projeto.setDescricaoSituacaoDesejada(this.situacaoDesejada);
         projeto.setDescricaoSolucao(this.solucao);

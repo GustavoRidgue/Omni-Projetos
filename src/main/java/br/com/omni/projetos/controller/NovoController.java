@@ -49,6 +49,12 @@ public class NovoController {
         projeto.setDataSolicitacao(LocalDate.now());
         projeto.setDepartamento(departamento);
 
+        if (request.isRegulatorio()) {
+            projeto.setRegulatorio(Regulatorio.SIM);
+        } else {
+            projeto.setRegulatorio(Regulatorio.NÃO);
+        }
+
         projetoRepositoy.save(projeto);
 
         return "projeto/criar";
