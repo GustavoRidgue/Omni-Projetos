@@ -121,7 +121,9 @@
                                 <p class="d-inline-block fs-6">Regulatório: </p><p th:text="${projeto.regulatorio}" class="mb-1 d-inline-block">Sim</p>
                             </div>
                             <div>
-                                <p class="d-inline-block fs-6">Data solicitação: </p><p th:text="${projeto.dataSolicitacao}" class="mb-1 d-inline-block">20/01/2021</p>
+                                <p class="d-inline-block fs-6">Data solicitação: </p><p th:text="${#temporals.format(projeto.dataSolicitacao, 'dd/MM/yyyy')}" class="mb-1 d-inline-block">20/01/2021</p>
+<!--                                <p class="d-inline-block fs-6">Data solicitação: </p><p th:text="${projeto.dataSolicitacao}" class="mb-1 d-inline-block">20/01/2021</p>-->
+<!--                                th:text="${#dates.format(projeto.dataSolicitacao, 'dd/MM/yyyy')}"-->
                             </div>
                         </div>
                         <div class="card-footer">

@@ -1,5 +1,8 @@
 package br.com.omni.projetos.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 
@@ -9,7 +12,9 @@ public class Projeto {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nome;
-    private String dataSolicitacao;
+//    @DateTimeFormat(pattern = "dd/MM/yyyy")
+    @JsonFormat(pattern="dd/MM/yyyy")
+    private LocalDate dataSolicitacao;
     @ManyToOne
     private Departamento departamento;
     @Enumerated(EnumType.STRING)
@@ -34,11 +39,11 @@ public class Projeto {
         this.nome = nome;
     }
 
-    public String getDataSolicitacao() {
+    public LocalDate getDataSolicitacao() {
         return dataSolicitacao;
     }
 
-    public void setDataSolicitacao(String dataSolicitacao) {
+    public void setDataSolicitacao(LocalDate dataSolicitacao) {
         this.dataSolicitacao = dataSolicitacao;
     }
 
