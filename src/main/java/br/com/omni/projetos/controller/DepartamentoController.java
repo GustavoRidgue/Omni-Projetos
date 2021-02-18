@@ -34,7 +34,8 @@ public class DepartamentoController {
     }
 
     @GetMapping("criar")
-    public String criar(NovoDeptRequest novoDeptRequest) {
+    public String criar(NovoDeptRequest novoDeptRequest, Model model) {
+//        model.addAttribute("msgCriado", "Todos departamentos:");
         return "departamento/criar";
     }
 
@@ -48,6 +49,7 @@ public class DepartamentoController {
 
         if (dept.getSenha().equals("Omni2020")) {
             departamentoRepository.save(dept);
+//            model.addAttribute("msgCriado", "Departamento " + dept.getNome() + " criado com sucesso!");
             return "redirect:todos";
         } else {
             model.addAttribute("erroSenha", "Senha inválida");
