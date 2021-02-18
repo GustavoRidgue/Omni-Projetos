@@ -9,10 +9,13 @@ import br.com.omni.projetos.repository.ProjetoRepositoy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.validation.Valid;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
@@ -27,7 +30,7 @@ public class NovoController {
     private DepartamentoRepository departamentoRepository;
 
     @GetMapping("criar")
-    public String criar(Model model) {
+    public String criar(Model model, NovoProjetoRequest request) {
         List<Departamento> departamentos = departamentoRepository.findAll();
         model.addAttribute("departamentos", departamentos);
 
@@ -35,7 +38,13 @@ public class NovoController {
     }
 
     @PostMapping("novo")
-    public String novo(NovoProjetoRequest request) {
+    public String novo(@Valid NovoProjetoRequest request, BindingResult result, Model model) {
+        if (result.hasErrors()) {
+            List<Departamento> departamentos = departamentoRepository.findAll();
+            model.addAttribute("departamentos", departamentos);
+            return "projeto/criar";
+        }
+
         Optional<Departamento> dept = departamentoRepository.findById(request.getDepartamento());
 
         if (!dept.isPresent()) {
@@ -57,7 +66,7 @@ public class NovoController {
 
         projetoRepositoy.save(projeto);
 
-        return "projeto/criar";
+        return "redirect:/home";
     }
 
 }

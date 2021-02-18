@@ -58,11 +58,16 @@
                 </div>
             </div>
 
-            <form action="/projeto/novo" method="post">
+<!--            <form action="/projeto/novo" method="post">-->
+            <form th:object="${novoProjetoRequest}" action="/projeto/novo" method="post">
                 <div class="row">
                     <div class="form-group mt-5 col-md-6">
                         <label for="nome" id="labelProjeto" data-bs-toggle="tooltip" data-bs-placement="top" title="Campo obrigatório; Máximo 50 caractéres">Projeto:</label>
-                        <input type="text" class="form-control" id="nome" name="nome" placeholder="Digite o nome do seu projeto" required minlength="1" maxlength="50">
+<!--                        <input type="text" class="form-control" id="nome" placeholder="Digite o nome do seu projeto" minlength="1" maxlength="50">-->
+                        <input th:field="*{nome}" type="text" class="form-control" id="nome" placeholder="Digite o nome do seu projeto" minlength="1" maxlength="50">
+                        <div class="text-danger" th:errors="*{nome}">
+                            Erros da descrição do produto
+                        </div>
                     </div>
                     <div class="form-group mt-5 col-md-6">
                         <label for="departamento" id="labelDepartamento" data-bs-toggle="tooltip" data-bs-placement="top" title="Campo obrigatório">Departamento:</label>
@@ -75,17 +80,29 @@
                 <div class="row">
                     <div class="form-group mt-4 col-md-4 col-xs-12">
                         <label for="situacaoAtual" id="labelSituacaoAtual" data-bs-toggle="tooltip" data-bs-placement="top" title="Campo obrigatório; Máximo 100 caractéres">Situação Atual</label>
-                        <textarea class="form-control" id="situacaoAtual" name="situacaoAtual" rows="4" placeholder="Análise da situação atual" required minlength="1" maxlength="100"></textarea>
+<!--                        <textarea class="form-control" id="situacaoAtual" rows="4" placeholder="Análise da situação atual" minlength="1" maxlength="100"></textarea>-->
+                        <textarea th:field="*{situacaoAtual}" class="form-control" id="situacaoAtual" rows="4" placeholder="Análise da situação atual" minlength="1" maxlength="100"></textarea>
+                        <div class="text-danger" th:errors="*{situacaoAtual}">
+                            Erros da descrição do produto
+                        </div>
                     </div>
 
                     <div class="form-group mt-4 col-md-4 col-xs-12">
                         <label for="situacaoDesejada" id="labelSituacaoDesejada" data-bs-toggle="tooltip" data-bs-placement="top" title="Campo obrigatório; Máximo 100 caractéres">Situação desejada</label>
-                        <textarea class="form-control" id="situacaoDesejada" name="situacaoDesejada" rows="4" placeholder="Descrição da situação desejada" required minlength="1" maxlength="100"></textarea>
+<!--                        <textarea class="form-control" id="situacaoDesejada" rows="4" placeholder="Descrição da situação desejada" minlength="1" maxlength="100"></textarea>-->
+                        <textarea th:field="*{situacaoDesejada}" class="form-control" id="situacaoDesejada" rows="4" placeholder="Descrição da situação desejada" minlength="1" maxlength="100"></textarea>
+                        <div class="text-danger" th:errors="*{situacaoDesejada}">
+                            Erros da descrição do produto
+                        </div>
                     </div>
 
                     <div class="form-group mt-4 col-md-4 col-xs-12">
-                        <label for="solução" id="labelSolucao" data-bs-toggle="tooltip" data-bs-placement="top" title="Campo obrigatório; Máximo 100 caractéres">Solução</label>
-                        <textarea class="form-control" id="solução" name="solução" rows="4" placeholder="Descrição da solução" required minlength="1" maxlength="100"></textarea>
+                        <label for="solucao" id="labelSolucao" data-bs-toggle="tooltip" data-bs-placement="top" title="Campo obrigatório; Máximo 100 caractéres">Solução</label>
+<!--                        <textarea class="form-control" id="solucao" rows="4" placeholder="Descrição da solução" minlength="1" maxlength="100"></textarea>-->
+                        <textarea th:field="*{solucao}" class="form-control" id="solucao" rows="4" placeholder="Descrição da solução" minlength="1" maxlength="100"></textarea>
+                        <div class="text-danger" th:errors="*{solucao}">
+                            Erros da descrição do produto
+                        </div>
                     </div>
                 </div>
 

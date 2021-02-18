@@ -11,6 +11,7 @@ public class Departamento {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nome;
+    private String senha;
 
     public Long getId() {
         return id;
@@ -26,5 +27,13 @@ public class Departamento {
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
     }
 }

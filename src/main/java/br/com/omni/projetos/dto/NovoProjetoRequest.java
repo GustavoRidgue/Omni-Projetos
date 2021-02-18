@@ -5,6 +5,7 @@ import br.com.omni.projetos.model.Projeto;
 import br.com.omni.projetos.model.Regulatorio;
 import com.sun.istack.NotNull;
 
+import javax.validation.constraints.NotBlank;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
@@ -12,17 +13,15 @@ import java.util.Calendar;
 import java.util.Date;
 
 public class NovoProjetoRequest {
-    @NotNull // (message = "Campo nome do produto precisa ser preenchido*")
+    @NotBlank(message = "Campo obrigatório!")
     private String nome;
-    @NotNull // (message = "Campo descricao precisa ser preenchido*") @Max(250)
     private Long departamento;
-    @NotNull // (message = "Campo URL do produto deve ser preenchido*")
+    @NotBlank (message = "Campo obrigatório!")
     private String situacaoAtual;
-    @NotNull // (message = "Campo endereço da imagem deve ser preenchido*")
+    @NotBlank (message = "Campo obrigatório!")
     private String situacaoDesejada;
-    @NotNull // (message = "Campo endereço da imagem deve ser preenchido*")
+    @NotBlank (message = "Campo obrigatório!")
     private String solucao;
-    @NotNull // (message = "Campo endereço da imagem deve ser preenchido*")
     private boolean regulatorio;
 
 //    private static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
