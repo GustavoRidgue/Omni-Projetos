@@ -16,12 +16,12 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item mr-2">
-                        <a class="nav-link" href="/home">
+                        <a class="nav-link" href="/Omni/home">
                             Projetos
                         </a>
                     </li>
                     <li class="nav-item mr-2">
-                        <a class="nav-link" href="/departamento/todos">
+                        <a class="nav-link" href="/Omni/departamento/todos">
                             Departamentos
                         </a>
                     </li>
@@ -63,7 +63,7 @@
             </div>
 
 <!--            <form action="/projeto/novo" method="post">-->
-            <form th:object="${novoProjetoRequest}" action="/projeto/novo" method="post">
+            <form th:object="${novoProjetoRequest}" action="/Omni/projeto/novo" method="post">
                 <div class="row">
                     <div class="form-group mt-5 col-md-6">
                         <label for="nome" id="labelProjeto" data-bs-toggle="tooltip" data-bs-placement="top" title="Campo obrigatório; Máximo 50 caractéres">Projeto:</label>
