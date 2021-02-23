@@ -105,39 +105,34 @@
 
                         <th:block th:switch="${projeto.regulatorio.name()}">
                             <div class="card-header alert-primary" th:case="'SIM'">
+<!--                                    th:href="${projeto/detalhes/1"-->
                                 <h5 th:text="${projeto.nome}" class="card-title d-inline-block">Quitação de divídas</h5>
                                 (<p th:text="${projeto.id}" class="mb-0 d-inline-block">id</p>)
                             </div>
 
                             <div class="card-header alert-warning" th:case="'NÃO'">
-                                <h5 th:text="${projeto.nome}" class="card-title d-inline-block">Quitação de divídas</h5>
-                                (<p th:text="${projeto.id}" class="mb-0 d-inline-block">id</p>)
+                                    <h5 th:text="${projeto.nome}" class="card-title d-inline-block">Quitação de divídas</h5>
+                                    (<p th:text="${projeto.id}" class="mb-0 d-inline-block">id</p>)
                             </div>
                         </th:block>
                         <div class="card-body">
-<!--                            <th:block th:switch="${projeto.departamento.nome}">-->
-<!--                                <div class="card-header alert-warning" th:case="'AGUARDANDO'">-->
-<!--                                    <h6 th:text="${projeto.departamento.nome}" class="card-subtitle mb-2 text-muted">Central de atendimento</h6>-->
-<!--                                </div>-->
-
-<!--                                <div class="card-header alert-success" th:case="'APROVADO'">-->
-<!--                                    <h6 th:text="${projeto.departamento.nome}" class="card-subtitle mb-2 text-muted">Central de atendimento</h6>-->
-<!--                                </div>-->
-<!--                            </th:block>-->
-                            <h6 th:text="${projeto.departamento.nome}" class="card-subtitle mb-2 text-muted">Central de atendimento</h6>
-                            <p th:text="${projeto.analiseSituacaoAtual}" class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <div>
+                                <h6 th:text="${projeto.departamento.nome}" class="card-subtitle mb-2 text-muted">Central de atendimento</h6>
+                                <p th:text="${projeto.analiseSituacaoAtual}" class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            </div>
                             <hr class="dropdown-divider">
                             <div>
-                                <p class="d-inline-block fs-6">Regulatório: </p><p th:text="${projeto.regulatorio}" class="mb-1 d-inline-block">Sim</p>
-                            </div>
-                            <div>
-                                <p class="d-inline-block fs-6">Data solicitação: </p><p th:text="${#temporals.format(projeto.dataSolicitacao, 'dd/MM/yyyy')}" class="mb-1 d-inline-block">20/01/2021</p>
-<!--                                <p class="d-inline-block fs-6">Data solicitação: </p><p th:text="${projeto.dataSolicitacao}" class="mb-1 d-inline-block">20/01/2021</p>-->
-<!--                                th:text="${#dates.format(projeto.dataSolicitacao, 'dd/MM/yyyy')}"-->
+                                <div>
+                                    <p class="fst-italic d-inline-block mb-0">Regulatório: </p> <p th:text="${projeto.regulatorio}" class="mb-0 d-inline-block">Sim</p>
+                                </div>
+                                <div>
+                                    <p class="fst-italic d-inline-block mb-0">Data solicitação: </p> <p th:text="${#temporals.format(projeto.dataSolicitacao, 'dd/MM/yyyy')}" class="mb-0 d-inline-block">20/01/2021</p>
+                                </div>
                             </div>
                         </div>
                         <div class="card-footer">
-                            <a href="#" class="card-link">Detalhes</a>
+<!--                            <a href="home/detalhes/1" class="card-link">Detalhes</a>-->
+                            <a th:href="@{home/detalhes/{id}(id=${projeto.id})}" class="card-link">Detalhes</a>
                             <a href="#" class="card-link">Editar</a>
                         </div>
                     </div>
