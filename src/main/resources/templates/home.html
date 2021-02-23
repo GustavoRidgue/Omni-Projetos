@@ -131,9 +131,14 @@
                             </div>
                         </div>
                         <div class="card-footer">
-<!--                            <a href="home/detalhes/1" class="card-link">Detalhes</a>-->
                             <a th:href="@{home/detalhes/{id}(id=${projeto.id})}" class="card-link">Detalhes</a>
-                            <a href="#" class="card-link">Editar</a>
+                            <a th:href="@{home/atualizar/{id}(id=${projeto.id})}" class="card-link">Editar</a>
+                            <div class="d-inline-block card-link">
+                                <form th:action="@{home/deletar/{id}(id=${projeto.id})}" method="post">
+                                    <button type="submit" class="btn btn-danger">Deletar</button>
+                                </form>
+                            </div>
+<!--                            <a th:href="@{home/deletar/{id}(id=${projeto.id})}" class="card-link">Deletar</a>-->
                         </div>
                     </div>
                 </div>
