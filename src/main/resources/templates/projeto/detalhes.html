@@ -73,14 +73,14 @@
                     <div class="card-body">
                         <h6 th:text="${projeto.departamento.nome}" class="card-subtitle mb-2 text-muted">Central de atendimento</h6>
                         <hr class="dropdown-divider">
-                        <div>
-                            <div>
+                        <div class="row">
+                            <div class="col-md-4 col-xs-12">
                                 <strong class="fst-italic">Situação Atual: </strong><p th:text="${projeto.analiseSituacaoAtual}" class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                             </div>
-                            <div class="mt-2">
+                            <div class="mt-2 col-md-4 col-xs-12">
                                 <strong class="fst-italic">Situação Desejada: </strong><p th:text="${projeto.descricaoSituacaoDesejada}" class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                             </div>
-                            <div class="mt-2">
+                            <div class="mt-2 col-md-4 col-xs-12">
                                 <strong class="fst-italic">Descrição da Solução: </strong><p th:text="${projeto.descricaoSolucao}" class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                             </div>
                         </div>

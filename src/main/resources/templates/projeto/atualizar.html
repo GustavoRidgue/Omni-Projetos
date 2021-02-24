@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html >
 <html lang="pt-br">
 <head>
     <head th:replace="~{geral :: head}"></head>
@@ -56,56 +56,72 @@
 <article>
     <section>
         <div class="container">
-            <div class="row justify-content-center mt-5">
-                <div class="card pside-0 col-10" style="width: 40 rem;">
+            <form th:object="${atualizarProjetoRequest}" action="/Omni/home/atualizado" method="post">
+<!--            <form th:object="${novoProjetoRequest}" action="/Omni/home" method="post">-->
+                <!--            <form th:object="${novoProjetoRequest}" action="/Omni/home" method="post">-->
+                <div class="row justify-content-center mt-5">
+                    <div class="card pside-0 col-10" style="width: 40 rem;">
 
-                    <th:block th:switch="${projeto.regulatorio.name()}">
-                        <div class="card-header alert-primary" th:case="'SIM'">
-                            <label for="nome" id="labelProjeto" data-bs-toggle="tooltip" data-bs-placement="top" title="Campo obrigatório; Máximo 50 caractéres">Projeto:</label>
-                            <input th:field="*{nome}" type="text" class="form-control" id="nome" placeholder="Digite o nome do seu projeto" minlength="1" maxlength="50">
-                            (<p th:text="${projeto.id}" class="mb-0 d-inline-block">id</p>)
-                        </div>
+                        <th:block th:switch="${projeto.regulatorio.name()}">
+                            <div class="card-header row alert-primary m-sides-0 pside-0" th:case="'SIM'">
+<!--                                <h5 th:text="${projeto.nome}" class="card-title mt-' d-inline-block">Quitação de divídas</h5>-->
+                                <div class="d-inline-block col-6">
+                                    <input type="text" th:value="${projeto.nome}" class="form-control" id="nome" name="nome" placeholder="Digite o nome do seu projeto" minlength="1" maxlength="50">
+                                    <input type="hidden" th:value="${projeto.id}" class="form-control" id="id" name="id" placeholder="Digite o nome do seu projeto" minlength="1" maxlength="50">
+                                </div>
+                            </div>
 
-                        <div class="card-header alert-warning" th:case="'NÃO'">
-                            <h5 th:text="${projeto.nome}" class="card-title mt-1 d-inline-block">Quitação de divídas</h5>
-                            (<p th:text="${projeto.id}" class="mb-0 d-inline-block">id</p>)
-                        </div>
-                    </th:block>
-                    <div class="card-body">
-                        <h6 th:text="${projeto.departamento.nome}" class="card-subtitle mb-2 text-muted">Central de atendimento</h6>
-                        <hr class="dropdown-divider">
-                        <div>
+                            <div class="card-header row alert-warning m-sides-0 pside-0" th:case="'NÃO'">
+<!--                                <h5 th:text="${projeto.nome}" class="card-title mt-1 d-inline-block">Quitação de divídas</h5>-->
+                                <div class="d-inline-block col-8">
+                                    <input type="text" th:value="${projeto.nome}" class="form-control" id="nome" name="nome" placeholder="Digite o nome do seu projeto" minlength="1" maxlength="50">
+                                    <input type="hidden" th:value="${projeto.id}" class="form-control" id="id" name="id" placeholder="Digite o nome do seu projeto" minlength="1" maxlength="50">
+                                </div>
+                            </div>
+                        </th:block>
+                        <div class="card-body">
+                            <h6 th:text="${projeto.departamento.nome}" class="card-subtitle mb-2 text-muted">Central de atendimento</h6>
+                            <hr class="dropdown-divider">
+                            <div class="row">
+                                <div class="form-group col-md-4 col-xs-12 mt-2">
+                                    <label for="situacaoAtual" id="labelSituacaoAtual" data-bs-toggle="tooltip" data-bs-placement="top" title="Campo obrigatório; Máximo 100 caractéres">Situação Atual:</label>
+                                    <textarea class="form-control" id="situacaoAtual" name="situacaoAtual" rows="4" placeholder="Análise da situação atual" minlength="1" maxlength="100"></textarea>
+                                </div>
+
+                                <div class="form-group col-md-4 col-xs-12 mt-2">
+                                    <label for="situacaoDesejada" id="labelSituacaoDesejada" data-bs-toggle="tooltip" data-bs-placement="top" title="Campo obrigatório; Máximo 100 caractéres">Situação desejada:</label>
+                                    <textarea class="form-control" id="situacaoDesejada" name="situacaoDesejada" rows="4" placeholder="Descrição da situação desejada" minlength="1" maxlength="100"></textarea>
+                                </div>
+
+                                <div class="form-group col-md-4 col-xs-12 mt-2">
+                                    <label for="solucao" id="labelSolucao" data-bs-toggle="tooltip" data-bs-placement="top" title="Campo obrigatório; Máximo 100 caractéres">Solução:</label>
+                                    <textarea class="form-control" id="solucao" name="solucao" rows="4" minlength="1" maxlength="100" placeholder="Descrição da solução"></textarea>
+                                </div>
+                            </div>
+                            <hr class="dropdown-divider">
                             <div>
-                                <strong class="fst-italic">Situação Atual: </strong><p th:text="${projeto.analiseSituacaoAtual}" class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            </div>
-                            <div class="mt-2">
-                                <strong class="fst-italic">Situação Desejada: </strong><p th:text="${projeto.descricaoSituacaoDesejada}" class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            </div>
-                            <div class="mt-2">
-                                <strong class="fst-italic">Descrição da Solução: </strong><p th:text="${projeto.descricaoSolucao}" class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            </div>
-                        </div>
-                        <hr class="dropdown-divider">
-                        <div>
-                            <div>
-                                <p class="fst-italic d-inline-block mb-1">Regulatório: </p> <p th:text="${projeto.regulatorio}" class="mb-0 d-inline-block">Sim</p>
-                            </div>
-                            <div>
-                                <p class="fst-italic d-inline-block mb-0">Data solicitação: </p> <p th:text="${#temporals.format(projeto.dataSolicitacao, 'dd/MM/yyyy')}" class="mb-0 d-inline-block">20/01/2021</p>
+                                <div>
+                                    <p class="fst-italic d-inline-block mb-1">Regulatório: </p> <p th:text="${projeto.regulatorio}" class="mb-0 d-inline-block">Sim</p>
+                                </div>
+                                <div>
+                                    <p class="fst-italic d-inline-block mb-0">Data solicitação: </p> <p th:text="${#temporals.format(projeto.dataSolicitacao, 'dd/MM/yyyy')}" class="mb-0 d-inline-block">20/01/2021</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="card-footer">
-                        Criado por: Gustavo Ridgue
+                        <div class="card-footer">
+                            Criado por: Gustavo Ridgue
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
-
-        <div class="row justify-content-center mt-5">
-            <div class="col-4 col-md-2">
-                <a class="btn btn-laranja width-100" href="/Omni/home">Voltar</a>
-            </div>
+                <div class="row justify-content-center mt-5">
+                    <div class="col-8 col-md-5">
+                        <button type="submit" class="btn btn-laranja width-100">Atualizar Projeto</button>
+                    </div>
+                    <div class="col-4 col-md-2">
+                        <a class="btn btn-secondary width-100" href="/Omni/home">Voltar</a>
+                    </div>
+                </div>
+            </form>
         </div>
     </section>
 </article>
