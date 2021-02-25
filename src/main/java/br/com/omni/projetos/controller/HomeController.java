@@ -2,6 +2,7 @@ package br.com.omni.projetos.controller;
 
 import br.com.omni.projetos.dto.NovoProjetoRequest;
 import br.com.omni.projetos.dto.atualizar.AtualizarProjetoRequest;
+import br.com.omni.projetos.dto.deletar.DeletarProjetoRequest;
 import br.com.omni.projetos.model.Projeto;
 import br.com.omni.projetos.repository.DepartamentoRepository;
 import br.com.omni.projetos.repository.ProjetoRepositoy;
@@ -86,19 +87,24 @@ public class HomeController {
         return "redirect:/home";
     }
 
-    @PostMapping("/deletar/{id}")
+    @PostMapping("deletado")
     @Transactional
-    public String deletar(@PathVariable("id") Long id, Model model) {
-        Optional<Projeto> projeto = projetoRepositoy.findById(id);
+    public String deletar(DeletarProjetoRequest request, Model model) {
+//        if (result.hasErrors()) {
+//            return "/projeto/atualizar";
+//        }
 
-        if(projeto.isPresent()) {
-            projetoRepositoy.deleteById(id);
+        Optional<Projeto> projeto = projetoRepositoy.findById(request.getId());
+
+        if(projeto.isPresent() && request.getSenha().equals("Omni2020")) {
+            projetoRepositoy.deleteById(request.getId());
             List<Projeto>      projetos      = projetoRepositoy.findAll();
             model.addAttribute("projetos", projetos);
-            return "home";
+
+            return "redirect:/home";
         }
 
-        return "home";
+        return "/projeto/atualizar";
     }
 
 //    @PutMapping("/atualizar/{id}")

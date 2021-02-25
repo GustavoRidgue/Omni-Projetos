@@ -105,14 +105,17 @@
 
                         <th:block th:switch="${projeto.regulatorio.name()}">
                             <div class="card-header alert-primary" th:case="'SIM'">
-<!--                                    th:href="${projeto/detalhes/1"-->
-                                <h5 th:text="${projeto.nome}" class="card-title d-inline-block">Quitação de divídas</h5>
+                                <h5 class="d-inline-block mt-1 card-title">
+                                    <a th:href="@{home/detalhes/{id}(id=${projeto.id})}" th:text="${projeto.nome}" class="card-title-primary d-inline-block">Quitação de divídas</a>
+                                </h5>
                                 (<p th:text="${projeto.id}" class="mb-0 d-inline-block">id</p>)
                             </div>
 
                             <div class="card-header alert-warning" th:case="'NÃO'">
-                                    <h5 th:text="${projeto.nome}" class="card-title d-inline-block">Quitação de divídas</h5>
-                                    (<p th:text="${projeto.id}" class="mb-0 d-inline-block">id</p>)
+                                <h5 class="d-inline-block mt-1 card-title">
+                                    <a th:href="@{home/detalhes/{id}(id=${projeto.id})}" th:text="${projeto.nome}" class="card-title-warning d-inline-block">Quitação de divídas</a>
+                                </h5>
+                                (<p th:text="${projeto.id}" class="mb-0 d-inline-block">id</p>)
                             </div>
                         </th:block>
                         <div class="card-body">
@@ -131,14 +134,9 @@
                             </div>
                         </div>
                         <div class="card-footer">
-                            <a th:href="@{home/detalhes/{id}(id=${projeto.id})}" class="card-link">Detalhes</a>
-                            <a th:href="@{home/atualizar/{id}(id=${projeto.id})}" class="card-link">Editar</a>
-                            <div class="d-inline-block card-link">
-                                <form th:action="@{home/deletar/{id}(id=${projeto.id})}" method="post">
-                                    <button type="submit" class="btn btn-danger">Deletar</button>
-                                </form>
-                            </div>
+<!--                            <a th:href="@{home/detalhes/{id}(id=${projeto.id})}" class="card-link">Detalhes</a>-->
 <!--                            <a th:href="@{home/deletar/{id}(id=${projeto.id})}" class="card-link">Deletar</a>-->
+                            <a th:href="@{home/atualizar/{id}(id=${projeto.id})}" class="d-inline-block card-link">Editar</a>
                         </div>
                     </div>
                 </div>
