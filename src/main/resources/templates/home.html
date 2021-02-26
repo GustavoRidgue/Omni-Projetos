@@ -72,8 +72,31 @@
 <!--                    <a class="nav-link text-light" href="/pedido/criar-pedido" aria-disabled="true">Pesquisar</a>-->
 <!--                    <a href="/login" class="btn btn-outline-light">Login</a>-->
 
-                    <form class="mr-1" id="form-login" th:action="@{/logout}" method="post">
-                        <button type="submit" class="btn btn-laranja margin-right">Logout</button>
+<!--                    <form class="mr-1" id="form-login" th:action="@{/logout}" method="post">-->
+<!--                        <button type="submit" class="btn btn-laranja margin-right">Logout</button>-->
+<!--                    </form>-->
+                    <form action="home?id=2" method="get" class="d-flex">
+<!--                        <input id="pesquisa-projeto" class="form-control" type="search" placeholder="Nome do projeto" aria-label="Search">-->
+<!--                        <div class="input-group-append">-->
+<!--                            <button class="input-group-text bg-laranja text-white" id="basic-addon2" type="submit">-->
+<!--                                <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor" class="bi bi-search p-1" viewBox="0 0 16 16">-->
+<!--                                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>-->
+<!--                                </svg>-->
+<!--                            </button>-->
+<!--                        </div>-->
+                        <div class="input-group">
+                            <input type="number" name="id" class="form-control" id="validationTooltipUsername" placeholder="ID do projeto" aria-describedby="validationTooltipUsernamePrepend" required>
+                            <div class="invalid-tooltip">
+                                Please choose a unique and valid username.
+                            </div>
+                            <div class="input-group-prepend">
+                                <button type="search" class="input-group-text border-top-bottom-left-radius btn-laranja" id="validationTooltipUsernamePrepend">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor" class="bi bi-search p-1" viewBox="0 0 16 16">
+                                        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
                     </form>
                 </div>
             </div>
@@ -85,18 +108,18 @@
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="alert alert-primary text-center col-8 border-buttom" role="alert">
-                        <form class="d-flex">
-                            <div class="input-group">
-                                <input id="pesquisa-projeto" class="form-control" type="search" placeholder="Nome do projeto" aria-label="Search">
-                                <div class="input-group-append">
-                                    <button class="input-group-text" id="basic-addon2" type="submit">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor" class="bi bi-search p-1" viewBox="0 0 16 16">
-                                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
-                                        </svg>
-                                    </button>
-                                </div>
-                            </div>
-                        </form>
+<!--                        <form class="d-flex">-->
+<!--                            <div class="input-group">-->
+<!--                                <input id="pesquisa-projeto" class="form-control" type="search" placeholder="Nome do projeto" aria-label="Search">-->
+<!--                                <div class="input-group-append">-->
+<!--                                    <button class="input-group-text" id="basic-addon2" type="submit">-->
+<!--                                        <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor" class="bi bi-search p-1" viewBox="0 0 16 16">-->
+<!--                                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>-->
+<!--                                        </svg>-->
+<!--                                    </button>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </form>-->
                     </div>
                 </div>
 

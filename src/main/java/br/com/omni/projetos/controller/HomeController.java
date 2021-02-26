@@ -39,12 +39,35 @@ public class HomeController {
 
 
     @GetMapping
-    public String home(Model model) {
-        List<Projeto>      projetos      = projetoRepositoy.findAll();
-        model.addAttribute("projetos", projetos);
+    public String home(Long id, Model model) {
+        if (id == null) {
+            List<Projeto> projetos = projetoRepositoy.findAll();
+            model.addAttribute("projetos", projetos);
 
-        return "home";
+            return "home";
+
+        } else {
+            Optional<Projeto> projetos = projetoRepositoy.findById(id);
+
+            if (projetos.isPresent()) {
+                Projeto projeto = projetos.get();
+                model.addAttribute("projetos", projeto);
+
+                return "home";
+            }
+
+            return "redirect:home";
+
+        }
     }
+
+//    @GetMapping("?nome={nome}")
+//    public String buscar(@PathVariable("nome") String nome, Model model) {
+//        List<Projeto> projetos = projetoRepositoy.findByNome(nome);
+//        model.addAttribute("projetos", projetos);
+//
+//        return "home";
+//    }
 
     @GetMapping("/detalhes/{id}")
     public String detalhe(@PathVariable("id") Long id, Model model) {
@@ -104,7 +127,7 @@ public class HomeController {
             return "redirect:/home";
         }
 
-        return "/projeto/atualizar";
+        return "redirect:atualizar/" + request.getId();
     }
 
 //    @PutMapping("/atualizar/{id}")

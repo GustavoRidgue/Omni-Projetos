@@ -113,18 +113,18 @@
                         </div>
                     </div>
                 </div>
-                <div class="row justify-content-center mt-4">
-                    <div class="col-8 col-md-5">
+                <div class="row justify-content-center">
+                    <div class="mt-4 col-sm-5 col-md-3">
                         <button type="submit" class="btn btn-laranja width-100">Atualizar Projeto</button>
                     </div>
-                    <div class="col-4 col-md-2">
+                    <div class="mt-4 col-sm-5 col-md-2">
                         <a class="btn btn-secondary width-100" href="/Omni/home">Voltar</a>
                     </div>
                 </div>
             </form>
 
             <div class="row justify-content-center mt-5 mb-5">
-                <div class="accordion-item col-8">
+                <div class="accordion-item col-xs-12 col-sm-8">
                     <h2 class="accordion-header" id="headingTwo">
                         <button class="accordion-button collapsed alert-danger" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                             Deletar projeto
@@ -134,28 +134,23 @@
                         <div class="accordion-body">
 
                             <div class="text-center">
-                                <h5>Deletar projeto permanentemente</h5>
+                                <h5 class="text-danger">Deletar projeto permanentemente</h5>
                                 <p>Você tem certeza que deseja deletar este projeto permanentemente? Caso sim, não poderá acessa-lo novamente.</p>
                             </div>
 
                             <form th:object="${deletarProjetoRequest}" action="/Omni/home/deletado" method="post">
-                                <div class="row g-3 align-items-center">
+                                <div class="row justify-content-center g-3 align-items-center">
                                     <input type="hidden" th:value="${projeto.id}" class="form-control" id="id" name="id" placeholder="Digite o nome do seu projeto" minlength="1" maxlength="50">
                                     <div class="col-auto">
-                                        <label for="senha" class="col-form-label">Password</label>
+                                        <label for="senha" class="col-form-label">Senha de autorização:</label>
                                     </div>
                                     <div class="col-auto">
                                         <input type="password" name="senha" id="senha" class="form-control" aria-describedby="passwordHelpInline" required>
                                     </div>
-                                    <div class="col-auto">
-                                        <span id="passwordHelpInline" class="form-text">
-                                          Must be 8-20 characters long.
-                                        </span>
-                                    </div>
                                 </div>
-                                <div class="row">
-                                    <div class="col-4">
-                                        <button type="submit" class="btn btn-danger">Deletar</button>
+                                <div class="row justify-content-center mt-3">
+                                    <div class="col-xs-12 col-sm-4">
+                                        <button type="submit" class="btn btn-danger width-100">Deletar</button>
                                     </div>
                                 </div>
                             </form>
