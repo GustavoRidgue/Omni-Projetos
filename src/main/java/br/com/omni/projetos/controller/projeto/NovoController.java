@@ -1,4 +1,4 @@
-package br.com.omni.projetos.controller;
+package br.com.omni.projetos.controller.projeto;
 
 import br.com.omni.projetos.dto.NovoProjetoRequest;
 import br.com.omni.projetos.model.Departamento;
@@ -39,13 +39,11 @@ public class NovoController {
 
     @PostMapping("novo")
     public String novo(@Valid NovoProjetoRequest request, BindingResult result, Model model) {
-        if (result.hasErrors()) {
-            List<Departamento> departamentos = departamentoRepository.findAll();
-            model.addAttribute("departamentos", departamentos);
-            return "projeto/criar";
-        }
-
         Optional<Departamento> dept = departamentoRepository.findById(request.getDepartamento());
+
+        if (result.hasErrors()) {
+            return "redirect:projeto/criar";
+        }
 
         if (!dept.isPresent()) {
             return null;

@@ -1,8 +1,10 @@
-package br.com.omni.projetos.controller;
+package br.com.omni.projetos.controller.departamento;
 
 import br.com.omni.projetos.dto.NovoDeptRequest;
+import br.com.omni.projetos.dto.NovoProjetoRequest;
 import br.com.omni.projetos.model.Departamento;
 import br.com.omni.projetos.model.Projeto;
+import br.com.omni.projetos.model.Regulatorio;
 import br.com.omni.projetos.repository.DepartamentoRepository;
 import br.com.omni.projetos.repository.ProjetoRepositoy;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,27 +13,15 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.validation.Valid;
-import java.security.Principal;
-import java.time.format.DateTimeFormatter;
-import java.util.List;
 
 @Controller
 @RequestMapping("/departamento")
-public class DepartamentoController {
+public class NovoDeptController {
     @Autowired
     private DepartamentoRepository departamentoRepository;
-
-    @GetMapping("/todos")
-    public String home(Model model, Principal principal) {
-        List<Departamento> departamentos = departamentoRepository.findAll();
-        model.addAttribute("departamentos", departamentos);
-
-        return "departamento/todos";
-    }
 
     @GetMapping("criar")
     public String criar(NovoDeptRequest novoDeptRequest, Model model) {

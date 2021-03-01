@@ -1,4 +1,4 @@
-package br.com.omni.projetos.controller;
+package br.com.omni.projetos.controller.projeto;
 
 import br.com.omni.projetos.dto.NovoProjetoRequest;
 import br.com.omni.projetos.dto.atualizar.AtualizarProjetoRequest;
@@ -66,6 +66,9 @@ public class HomeController {
     @GetMapping("/regulatorio/{regulatorio}")
     public String regularoio(@PathVariable("regulatorio") String regulatorio, Model model) {
         List<Projeto> byRegulatorio = projetoRepositoy.findByRegulatorio(Regulatorio.valueOf(regulatorio.toUpperCase()));
+        String status = String.valueOf(Regulatorio.valueOf(regulatorio.toUpperCase()));
+
+        model.addAttribute("regulatorio", status);
         model.addAttribute("projetos", byRegulatorio);
 
         return "home";
