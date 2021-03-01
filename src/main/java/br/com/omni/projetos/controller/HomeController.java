@@ -4,6 +4,7 @@ import br.com.omni.projetos.dto.NovoProjetoRequest;
 import br.com.omni.projetos.dto.atualizar.AtualizarProjetoRequest;
 import br.com.omni.projetos.dto.deletar.DeletarProjetoRequest;
 import br.com.omni.projetos.model.Projeto;
+import br.com.omni.projetos.model.Regulatorio;
 import br.com.omni.projetos.repository.DepartamentoRepository;
 import br.com.omni.projetos.repository.ProjetoRepositoy;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -61,13 +62,14 @@ public class HomeController {
         }
     }
 
-//    @GetMapping("?nome={nome}")
-//    public String buscar(@PathVariable("nome") String nome, Model model) {
-//        List<Projeto> projetos = projetoRepositoy.findByNome(nome);
-//        model.addAttribute("projetos", projetos);
-//
-//        return "home";
-//    }
+
+    @GetMapping("/regulatorio/{regulatorio}")
+    public String regularoio(@PathVariable("regulatorio") String regulatorio, Model model) {
+        List<Projeto> byRegulatorio = projetoRepositoy.findByRegulatorio(Regulatorio.valueOf(regulatorio.toUpperCase()));
+        model.addAttribute("projetos", byRegulatorio);
+
+        return "home";
+    }
 
     @GetMapping("/detalhes/{id}")
     public String detalhe(@PathVariable("id") Long id, Model model) {

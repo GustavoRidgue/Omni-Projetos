@@ -7,7 +7,7 @@
     <header>
         <nav class="navbar navbar-expand-md navbar-dark bg-azul">
             <div class="container-fluid">
-                <a class="navbar-brand ml-1" href="#">
+                <a class="navbar-brand ml-1" href="/Omni/home">
                     <img src="https://www.bizfacil.com.br/imagens/logo_omni_fundo_azul.png" alt="" width="83" height="43" class="d-inline-block align-top">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -15,26 +15,25 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <!--                        <li class="nav-item mr-2 dropdown">-->
-<!--                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">-->
-<!--                                Projetos-->
-<!--                            </a>-->
-<!--                            <ul class="dropdown-menu bg-azul text-light" aria-labelledby="navbarDropdown">-->
-<!--                                <li><a class="dropdown-item" href="#">Todos</a></li>-->
-<!--                                <li><a class="dropdown-item" href="#">Meu departamento</a></li>-->
-<!--                                <li><a class="dropdown-item" href="#">Regulatório (sim)</a></li>-->
-<!--                                <li><a class="dropdown-item" href="#">Regulatório (não)</a></li>-->
-<!--                                <li><a class="dropdown-item" href="#">Mais Antigo</a></li>-->
-<!--                                <li><a class="dropdown-item" href="#">Mais Novo</a></li>-->
-<!--                                <li><hr class="dropdown-divider"></li>-->
-<!--                                <li><a class="dropdown-item" href="#input-pesquisa">Pesquisar nome</a></li>-->
-<!--                            </ul>-->
-<!--                        </li>-->
-                        <li class="nav-item mr-2">
-                            <a class="nav-link active" href="#">
+                        <li class="nav-item mr-2 dropdown">
+                            <a class="nav-link dropdown-toggle" href="/Omni/home" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Projetos
                             </a>
+                            <ul class="dropdown-menu bg-azul" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item text-light dropdown-bgh" href="/Omni/home">Todos</a></li>
+                                <li><a class="dropdown-item text-light dropdown-bgh" th:href="@{/home/regulatorio/sim}">Regulatório (sim)</a></li>
+                                <li><a class="dropdown-item text-light dropdown-bgh" th:href="@{/home/regulatorio/não}">Regulatório (não)</a></li>
+<!--                                <li><a class="dropdown-item text-light dropdown-bgh" href="#">Mais Antigo</a></li>-->
+<!--                                <li><a class="dropdown-item text-light dropdown-bgh" href="#">Mais Novo</a></li>-->
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item text-light dropdown-bgh" href="#input-pesquisa">Pesquisar nome</a></li>
+                            </ul>
                         </li>
+<!--                        <li class="nav-item mr-2">-->
+<!--                            <a class="nav-link active" href="/Omni/home">-->
+<!--                                Projetos-->
+<!--                            </a>-->
+<!--                        </li>-->
                         <li class="nav-item mr-2">
                             <a class="nav-link" href="/Omni/departamento/todos">
                                 Departamentos
@@ -66,15 +65,6 @@
                             </a>
                         </li>
                     </ul>
-
-<!--                    <a class="dropdown-item" href="#pesquisa-projeto">Pesquisar</a>-->
-
-<!--                    <a class="nav-link text-light" href="/pedido/criar-pedido" aria-disabled="true">Pesquisar</a>-->
-<!--                    <a href="/login" class="btn btn-outline-light">Login</a>-->
-
-<!--                    <form class="mr-1" id="form-login" th:action="@{/logout}" method="post">-->
-<!--                        <button type="submit" class="btn btn-laranja margin-right">Logout</button>-->
-<!--                    </form>-->
                     <form action="home?id=2" method="get" class="d-flex">
 <!--                        <input id="pesquisa-projeto" class="form-control" type="search" placeholder="Nome do projeto" aria-label="Search">-->
 <!--                        <div class="input-group-append">-->
@@ -128,17 +118,21 @@
 
                         <th:block th:switch="${projeto.regulatorio.name()}">
                             <div class="card-header alert-primary" th:case="'SIM'">
-                                <h5 class="d-inline-block mt-1 card-title">
+                                <h6 class="d-inline-block mt-1 card-title">
                                     <a th:href="@{home/detalhes/{id}(id=${projeto.id})}" th:text="${projeto.nome}" class="card-title-primary d-inline-block">Quitação de divídas</a>
-                                </h5>
-                                (<p th:text="${projeto.id}" class="mb-0 d-inline-block">id</p>)
+                                </h6>
+                                <div class="d-inline-block">
+                                    (<p th:text="${projeto.id}" class="mb-0 d-inline-block">id</p>)
+                                </div>
                             </div>
 
                             <div class="card-header alert-warning" th:case="'NÃO'">
-                                <h5 class="d-inline-block mt-1 card-title">
+                                <h6 class="d-inline-block mt-1 card-title">
                                     <a th:href="@{home/detalhes/{id}(id=${projeto.id})}" th:text="${projeto.nome}" class="card-title-warning d-inline-block">Quitação de divídas</a>
-                                </h5>
-                                (<p th:text="${projeto.id}" class="mb-0 d-inline-block">id</p>)
+                                </h6>
+                                <div class="d-inline-block">
+                                    (<p th:text="${projeto.id}" class="mb-0 d-inline-block">id</p>)
+                                </div>
                             </div>
                         </th:block>
                         <div class="card-body">
@@ -157,9 +151,7 @@
                             </div>
                         </div>
                         <div class="card-footer">
-<!--                            <a th:href="@{home/detalhes/{id}(id=${projeto.id})}" class="card-link">Detalhes</a>-->
-<!--                            <a th:href="@{home/deletar/{id}(id=${projeto.id})}" class="card-link">Deletar</a>-->
-                            <a th:href="@{home/atualizar/{id}(id=${projeto.id})}" class="d-inline-block card-link">Editar</a>
+                            <a th:href="@{/home/atualizar/{id}(id=${projeto.id})}" class="d-inline-block card-link">Alterar Projeto</a>
                         </div>
                     </div>
                 </div>
