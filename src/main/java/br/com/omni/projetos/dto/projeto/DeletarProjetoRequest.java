@@ -1,4 +1,4 @@
-package br.com.omni.projetos.dto.deletar;
+package br.com.omni.projetos.dto.projeto;
 
 import br.com.omni.projetos.model.Projeto;
 

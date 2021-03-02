@@ -1,12 +1,8 @@
 package br.com.omni.projetos.controller.departamento;
 
-import br.com.omni.projetos.dto.NovoDeptRequest;
-import br.com.omni.projetos.dto.NovoProjetoRequest;
+import br.com.omni.projetos.dto.departamento.NovoDeptRequest;
 import br.com.omni.projetos.model.Departamento;
-import br.com.omni.projetos.model.Projeto;
-import br.com.omni.projetos.model.Regulatorio;
 import br.com.omni.projetos.repository.DepartamentoRepository;
-import br.com.omni.projetos.repository.ProjetoRepositoy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

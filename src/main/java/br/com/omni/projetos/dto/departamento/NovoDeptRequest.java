@@ -1,4 +1,4 @@
-package br.com.omni.projetos.dto;
+package br.com.omni.projetos.dto.departamento;
 
 import br.com.omni.projetos.model.Departamento;
 import br.com.omni.projetos.model.Projeto;

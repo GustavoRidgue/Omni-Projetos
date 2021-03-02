@@ -1,4 +1,4 @@
-package br.com.omni.projetos.dto.atualizar;
+package br.com.omni.projetos.dto.departamento;
 
 import javax.validation.constraints.NotBlank;
 

@@ -1,8 +1,7 @@
 package br.com.omni.projetos.controller.projeto;
 
-import br.com.omni.projetos.dto.NovoProjetoRequest;
-import br.com.omni.projetos.dto.atualizar.AtualizarProjetoRequest;
-import br.com.omni.projetos.dto.deletar.DeletarProjetoRequest;
+import br.com.omni.projetos.dto.projeto.AtualizarProjetoRequest;
+import br.com.omni.projetos.dto.projeto.DeletarProjetoRequest;
 import br.com.omni.projetos.model.Projeto;
 import br.com.omni.projetos.model.Regulatorio;
 import br.com.omni.projetos.repository.DepartamentoRepository;
@@ -84,24 +83,24 @@ public class HomeController {
     }
 
 
-    @GetMapping("/atualizar/{id}")
+    @GetMapping("/alterar/{id}")
     public String paginaAtualizar(@PathVariable("id") Long id, Model model) {
 
         Optional<Projeto> optional = projetoRepositoy.findById(id);
         if(optional.isPresent()) {
             Projeto projeto = optional.get();
             model.addAttribute("projeto", projeto);
-            return "projeto/atualizar";
+            return "projeto/alterar";
         }
 
         return "home";
     }
 
-    @PostMapping("atualizado")
+    @PostMapping("alterado")
     @Transactional
     public String atualizado(@Valid AtualizarProjetoRequest request, BindingResult result, Model model) {
         if (result.hasErrors()) {
-            return "home";
+            return "redirect:alterar/" + request.getId();
         }
 
         Projeto projeto = projetoRepositoy.getOne(request.getId());
@@ -132,7 +131,7 @@ public class HomeController {
             return "redirect:/home";
         }
 
-        return "redirect:atualizar/" + request.getId();
+        return "redirect:alterar/" + request.getId();
     }
 
 //    @PutMapping("/atualizar/{id}")

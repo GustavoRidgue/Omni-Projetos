@@ -1,4 +1,4 @@
-package br.com.omni.projetos.dto;
+package br.com.omni.projetos.dto.projeto;
 
 import br.com.omni.projetos.model.Departamento;
 import br.com.omni.projetos.model.Projeto;
@@ -6,11 +6,6 @@ import br.com.omni.projetos.model.Regulatorio;
 import com.sun.istack.NotNull;
 
 import javax.validation.constraints.NotBlank;
-import java.time.LocalDate;
-import java.time.ZoneId;
-import java.time.format.DateTimeFormatter;
-import java.util.Calendar;
-import java.util.Date;
 
 public class NovoProjetoRequest {
     @NotBlank(message = "Campo obrigatório!")
@@ -23,8 +18,6 @@ public class NovoProjetoRequest {
     @NotBlank (message = "Campo obrigatório!")
     private String solucao;
     private boolean regulatorio;
-
-//    private static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
     public String getNome() {
         return nome;

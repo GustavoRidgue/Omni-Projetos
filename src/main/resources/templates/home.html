@@ -16,7 +16,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item mr-2 dropdown">
-                            <a class="nav-link dropdown-toggle" href="/Omni/home" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle active" href="/Omni/home" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Projetos
                             </a>
                             <ul class="dropdown-menu bg-azul" aria-labelledby="navbarDropdown">
@@ -29,11 +29,6 @@
                                 <li><a class="dropdown-item text-light dropdown-bgh" href="#input-pesquisa">Pesquisar nome</a></li>
                             </ul>
                         </li>
-<!--                        <li class="nav-item mr-2">-->
-<!--                            <a class="nav-link active" href="/Omni/home">-->
-<!--                                Projetos-->
-<!--                            </a>-->
-<!--                        </li>-->
                         <li class="nav-item mr-2">
                             <a class="nav-link" href="/Omni/departamento/todos">
                                 Departamentos
@@ -57,11 +52,11 @@
 <!--                            </a>-->
 <!--                        </li>-->
                     </ul>
-                    <form action="home?id" method="get" class="d-flex">
+                    <form action="/Omni/home?id" method="get" class="d-flex">
                         <div class="input-group">
                             <input type="number" name="id" class="form-control" id="validationTooltipUsername" placeholder="ID do projeto" aria-describedby="validationTooltipUsernamePrepend" required>
                             <div class="invalid-tooltip">
-                                Insira o ID de um departamento.
+                                Insira o ID de um projeto.
                             </div>
                             <div class="input-group-prepend">
                                 <button type="submit" class="input-group-text border-top-bottom-left-radius btn-laranja" id="validationTooltipUsernamePrepend">
@@ -82,7 +77,8 @@
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="alert alert-primary text-center col-auto border-buttom" role="alert">
-                        <h6 class="mb-0">Todos projetos</h6>
+<!--                        <h6 class="mb-0">Todos projetos</h6>-->
+                        Todos projetos
                     </div>
                 </div>
 
@@ -123,30 +119,13 @@
                             </div>
                         </div>
                         <div class="card-footer">
-                            <a th:href="@{/home/atualizar/{id}(id=${projeto.id})}" class="d-inline-block card-link">Alterar Projeto</a>
+                            <a th:href="@{/home/alterar/{id}(id=${projeto.id})}" class="d-inline-block card-link">Alterar Projeto</a>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
     </article>
-
-    <div class="modal fade" id="ajudaModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ajuda</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    ...
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"

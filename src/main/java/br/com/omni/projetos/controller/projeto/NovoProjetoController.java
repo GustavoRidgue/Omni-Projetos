@@ -1,6 +1,6 @@
 package br.com.omni.projetos.controller.projeto;
 
-import br.com.omni.projetos.dto.NovoProjetoRequest;
+import br.com.omni.projetos.dto.projeto.NovoProjetoRequest;
 import br.com.omni.projetos.model.Departamento;
 import br.com.omni.projetos.model.Projeto;
 import br.com.omni.projetos.model.Regulatorio;
@@ -12,7 +12,6 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.validation.Valid;
@@ -22,7 +21,7 @@ import java.util.Optional;
 
 @Controller
 @RequestMapping("projeto")
-public class NovoController {
+public class NovoProjetoController {
     @Autowired
     private ProjetoRepositoy projetoRepositoy;
 
