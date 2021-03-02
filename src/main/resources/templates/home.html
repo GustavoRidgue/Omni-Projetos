@@ -87,7 +87,7 @@
                         <th:block th:switch="${projeto.regulatorio.name()}">
                             <div class="card-header alert-primary" th:case="'SIM'">
                                 <h6 class="d-inline-block mt-1 card-title">
-                                    <a th:href="@{home/detalhes/{id}(id=${projeto.id})}" th:text="${projeto.nome}" class="card-title-primary d-inline-block">Quitação de divídas</a>
+                                    <a th:href="@{/home/detalhes/{id}(id=${projeto.id})}" th:text="${projeto.nome}" class="card-title-primary d-inline-block">Quitação de divídas</a>
                                 </h6>
                                 <div class="d-inline-block">
                                     (<p th:text="${projeto.id}" class="mb-0 d-inline-block">id</p>)
@@ -96,7 +96,7 @@
 
                             <div class="card-header alert-warning" th:case="'NÃO'">
                                 <h6 class="d-inline-block mt-1 card-title">
-                                    <a th:href="@{home/detalhes/{id}(id=${projeto.id})}" th:text="${projeto.nome}" class="card-title-warning d-inline-block">Quitação de divídas</a>
+                                    <a th:href="@{/home/detalhes/{id}(id=${projeto.id})}" th:text="${projeto.nome}" class="card-title-warning d-inline-block">Quitação de divídas</a>
                                 </h6>
                                 <div class="d-inline-block">
                                     (<p th:text="${projeto.id}" class="mb-0 d-inline-block">id</p>)

@@ -57,7 +57,7 @@ public class DepartamentoController {
     @Transactional
     public String atualizado(AtualizarDeptRequest request, BindingResult result) {
         if (result.hasErrors()) {
-            return "redirect:/departamento/todos";
+            return "redirect:/departamento/alterar";
         }
 
         Departamento departamento = departamentoRepository.getOne(request.getId());

@@ -76,10 +76,15 @@ public class HomeController {
     @GetMapping("/detalhes/{id}")
     public String detalhe(@PathVariable("id") Long id, Model model) {
         Optional<Projeto> projeto = projetoRepositoy.findById(id);
-        Projeto proj = projeto.get();
-        model.addAttribute("projeto", proj);
 
-        return "projeto/detalhes";
+        if (projeto.isPresent()) {
+            Projeto proj = projeto.get();
+            model.addAttribute("projeto", proj);
+
+            return "projeto/detalhes";
+        }
+
+        return "redirect:home";
     }
 
 
