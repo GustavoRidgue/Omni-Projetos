@@ -43,13 +43,13 @@
 <article>
     <section>
         <div class="container">
-            <div class="row justify-content-center">
-                <div class="alert alert-primary text-center col-auto border-buttom" role="alert">
-                    Detalhes do projeto
-                </div>
+            <div class="text-center" role="alert">
+                <h5 class="text-azul d-inline-block mt-3">
+                    Detalhes do projeto projeto "<h5 th:text="${projeto.nome}" class="d-inline-block"></h5>"
+                </h5>
             </div>
 
-            <div class="row justify-content-center mt-5">
+            <div class="row justify-content-center mt-4">
                 <div class="card pside-0 col-10" style="width: 40 rem;">
 
                     <th:block th:switch="${projeto.regulatorio.name()}">
@@ -94,8 +94,8 @@
             </div>
 
             <div class="row justify-content-center mt-4 mb-3">
-                <div class="col-5 col-md-2">
-                    <a class="btn btn-azul width-100" href="/Omni/home">Voltar</a>
+                <div class="col-auto">
+                    <a class="btn btn-info width-100" href="/Omni/home">Voltar</a>
                 </div>
             </div>
         </div>

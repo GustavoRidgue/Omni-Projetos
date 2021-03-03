@@ -42,17 +42,17 @@
 <article>
     <section>
         <div class="container">
-            <div class="row justify-content-center">
-                <div class="alert alert-primary text-center col-auto border-buttom" role="alert">
-                    Preencha o formulário para atualizar o departamento
-                </div>
+            <div class="text-center" role="alert">
+                <h5 class="text-azul d-inline-block mt-3">
+                    Alterar departamento "<h5 th:text="${departamento.nome}" class="d-inline-block"></h5>"
+                </h5>
             </div>
 
-            <form th:object="${atualizarDeptRequest}" action="/Omni/departamento/atualizado" method="post">
-                <div class="row justify-content-center mt-3">
-                    <table class="table table-warning table-striped">
+            <form th:object="${atualizarDeptRequest}" action="/Omni/departamento/atualizado" method="post" class="mt-0">
+                <div class="row justify-content-center mt-4">
+                    <table class="table table-striped">
                         <thead>
-                            <tr>
+                            <tr class="text-azul">
                                 <th scope="col">ID:</th>
                                 <th scope="col">Nome:</th>
                             </tr>
@@ -71,34 +71,17 @@
                 </div>
 
                 <div class="row justify-content-center">
-                    <div class="mt-4 col-sm-5 col-md-3">
-                        <button type="submit" class="btn btn-laranja width-100">Atualizar Departamento</button>
+                    <div class="mt-4 col-auto">
+                        <button type="submit" class="btn btn-success width-100">Atualizar Departamento</button>
                     </div>
-                    <div class="mt-4 col-sm-5 col-md-2">
-                        <a class="btn btn-azul width-100" href="/Omni/departamento/todos">Voltar</a>
+                    <div class="mt-4 col-auto">
+                        <a class="btn btn-info width-100" href="/Omni/departamento/todos">Voltar</a>
                     </div>
                 </div>
             </form>
         </div>
     </section>
 </article>
-
-<div class="modal fade" id="ajudaModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Ajuda</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                ...
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-            </div>
-        </div>
-    </div>
-</div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"

@@ -43,15 +43,13 @@
 <article>
     <section>
         <div class="container">
-            <div class="row justify-content-center">
-                <div class="alert alert-primary text-center col-auto border-buttom" role="alert">
-                    Preencha o formulário para criar um novo projeto
-                </div>
+            <div class="text-center" role="alert">
+                <h5 class="text-azul mt-3">Preencha o formulário para criar um novo projeto</h5>
             </div>
 
             <form th:object="${novoProjetoRequest}" action="/Omni/projeto/novo" method="post">
                 <div class="row">
-                    <div class="form-group mt-5 col-md-6">
+                    <div class="form-group mt-4 col-md-6">
                         <label for="nome" id="labelProjeto" data-bs-toggle="tooltip" data-bs-placement="top" title="Campo obrigatório; Máximo 50 caractéres">Projeto:</label>
                         <input th:field="*{nome}" type="text" class="form-control" id="nome" placeholder="Digite o nome do seu projeto" minlength="1" maxlength="50">
                         <div class="text-danger" th:errors="*{nome}">
@@ -115,11 +113,11 @@
                 </fieldset>
 
                 <div class="row justify-content-center mt-5">
-                    <div class="col-8 col-md-5">
-                        <button type="submit" class="btn btn-laranja width-100">Criar Projeto</button>
+                    <div class="col-auto">
+                        <button type="submit" class="btn btn-success width-100">Criar Projeto</button>
                     </div>
-                    <div class="col-4 col-md-2">
-                        <a class="btn btn-azul width-100" href="/Omni/home">Voltar</a>
+                    <div class="col-auto">
+                        <a class="btn btn-info width-100" href="/Omni/home">Voltar</a>
                     </div>
                 </div>
             </form>

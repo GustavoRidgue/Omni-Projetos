@@ -43,14 +43,14 @@
 <article>
     <section>
         <div class="container">
-            <div class="row justify-content-center">
-                <div class="alert alert-primary text-center col-auto border-buttom" role="alert">
-                    Preencha o formulário para alterar o projeto
-                </div>
+            <div class="text-center" role="alert">
+                <h5 class="text-azul d-inline-block mt-3">
+                    Alterar projeto "<h5 th:text="${projeto.nome}" class="d-inline-block"></h5>"
+                </h5>
             </div>
 
             <form th:object="${atualizarProjetoRequest}" action="/Omni/home/alterado" method="post">
-                <div class="row justify-content-center mt-5">
+                <div class="row justify-content-center mt-4">
                     <div class="card pside-0 col-10" style="width: 40 rem;">
 
                         <th:block th:switch="${projeto.regulatorio.name()}">
@@ -76,17 +76,17 @@
                             <div class="row">
                                 <div class="form-group col-md-4 col-xs-12 mt-2">
                                     <label for="situacaoAtual" id="labelSituacaoAtual" data-bs-toggle="tooltip" data-bs-placement="top" title="Campo obrigatório; Máximo 100 caractéres">Situação Atual:</label>
-                                    <textarea class="form-control" id="situacaoAtual" name="situacaoAtual" rows="4" placeholder="Análise da situação atual" minlength="1" maxlength="100" required></textarea>
+                                    <textarea th:text="${projeto.analiseSituacaoAtual}" class="form-control" id="situacaoAtual" name="situacaoAtual" rows="4" placeholder="Análise da situação atual" minlength="1" maxlength="100" required></textarea>
                                 </div>
 
                                 <div class="form-group col-md-4 col-xs-12 mt-2">
                                     <label for="situacaoDesejada" id="labelSituacaoDesejada" data-bs-toggle="tooltip" data-bs-placement="top" title="Campo obrigatório; Máximo 100 caractéres">Situação desejada:</label>
-                                    <textarea class="form-control" id="situacaoDesejada" name="situacaoDesejada" rows="4" placeholder="Descrição da situação desejada" minlength="1" maxlength="100" required></textarea>
+                                    <textarea th:text="${projeto.descricaoSituacaoDesejada}" class="form-control" id="situacaoDesejada" name="situacaoDesejada" rows="4" placeholder="Descrição da situação desejada" minlength="1" maxlength="100" required></textarea>
                                 </div>
 
                                 <div class="form-group col-md-4 col-xs-12 mt-2">
                                     <label for="solucao" id="labelSolucao" data-bs-toggle="tooltip" data-bs-placement="top" title="Campo obrigatório; Máximo 100 caractéres">Solução:</label>
-                                    <textarea class="form-control" id="solucao" name="solucao" rows="4" minlength="1" maxlength="100" placeholder="Descrição da solução" required></textarea>
+                                    <textarea th:text="${projeto.descricaoSolucao}" class="form-control" id="solucao" name="solucao" rows="4" minlength="1" maxlength="100" placeholder="Descrição da solução" required></textarea>
                                 </div>
                             </div>
                             <hr class="dropdown-divider">
@@ -103,11 +103,11 @@
                     </div>
                 </div>
                 <div class="row justify-content-center">
-                    <div class="mt-4 col-sm-5 col-md-3">
-                        <button type="submit" class="btn btn-laranja width-100">Atualizar Projeto</button>
+                    <div class="mt-4 col-auto">
+                        <button type="submit" class="btn btn-success width-100">Atualizar Projeto</button>
                     </div>
-                    <div class="mt-4 col-sm-5 col-md-2">
-                        <a class="btn btn-azul width-100" href="/Omni/home">Voltar</a>
+                    <div class="mt-4 col-auto">
+                        <a class="btn btn-info width-100" href="/Omni/home">Voltar</a>
                     </div>
                 </div>
             </form>
@@ -138,8 +138,8 @@
                                     </div>
                                 </div>
                                 <div class="row justify-content-center mt-3">
-                                    <div class="col-xs-12 col-sm-4">
-                                        <button type="submit" class="btn btn-danger width-100">Deletar</button>
+                                    <div class="col-auto">
+                                        <button type="submit" class="btn btn-danger">Deletar</button>
                                     </div>
                                 </div>
                             </form>
