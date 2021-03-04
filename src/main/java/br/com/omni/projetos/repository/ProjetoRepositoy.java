@@ -12,7 +12,8 @@ import java.util.Optional;
 @Repository
 public interface ProjetoRepositoy extends JpaRepository<Projeto, Long> {
 
-    List<Projeto> findByNome(String nome);
+    @Query(value = "SELECT * FROM projeto ORDER BY data_solicitacao DESC;", nativeQuery = true)
+    List<Projeto> findAllBySolicitacaoDesc();
 
     List<Projeto> findByRegulatorio(Regulatorio regulatorio);
 }

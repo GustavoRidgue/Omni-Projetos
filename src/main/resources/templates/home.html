@@ -23,10 +23,9 @@
                                 <li><a th:classappend="${regulatorio} == '' ? 'FDS' : 'bg-primary'" class="dropdown-item text-light dropdown-bgh" href="/Omni/home">Todos</a></li>
                                 <li><a th:classappend="${regulatorio} == 'SIM' ? 'bg-primary'" class="dropdown-item text-light dropdown-bgh" th:href="@{/home/regulatorio/sim}">Regulatório (sim)</a></li>
                                 <li><a th:classappend="${regulatorio} == 'NÃO' ? 'bg-primary'" class="dropdown-item text-light dropdown-bgh" th:href="@{/home/regulatorio/não}">Regulatório (não)</a></li>
-<!--                                <li><a class="dropdown-item text-light dropdown-bgh" href="#">Mais Antigo</a></li>-->
-<!--                                <li><a class="dropdown-item text-light dropdown-bgh" href="#">Mais Novo</a></li>-->
                                 <li><hr class="dropdown-divider"></li>
-                                <li><a class="dropdown-item text-light dropdown-bgh" href="#input-pesquisa">Pesquisar nome</a></li>
+                                <li><a th:classappend="${status} == true ? 'bg-primary'" class="dropdown-item text-light dropdown-bgh" th:href="@{/home/dataSolicitacaoDesc}">Recentes</a></li>
+<!--                                <li><a class="dropdown-item text-light dropdown-bgh" href="#input-pesquisa">Pesquisar nome</a></li>-->
                             </ul>
                         </li>
                         <li class="nav-item mr-2">
@@ -76,11 +75,11 @@
         <section>
             <div class="container">
                 <div class="text-center" role="alert">
-                    <h5 class="text-azul mt-3">Todos projetos</h5>
+                    <h5 th:text="${subtitulo}" class="text-azul mt-3"></h5>
                 </div>
 
                 <div class="row justify-content-center">
-                    <div th:each="projeto : ${projetos}" class="card pside-0 col-xs-12 col-4 m-4" style="width: 18rem;">
+                    <div th:each="projeto : ${projetos}" class="card pside-0 col-xs-12 col-2" style="width: 18rem;">
                         <th:block th:switch="${projeto.regulatorio.name()}">
                             <div class="card-header alert-primary" th:case="'SIM'">
                                 <h6 class="d-inline-block mt-1 card-title">

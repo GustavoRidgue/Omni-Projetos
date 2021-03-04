@@ -56,7 +56,7 @@
                             Erros da descrição do produto
                         </div>
                     </div>
-                    <div class="form-group mt-5 col-md-6">
+                    <div class="form-group mt-4 col-md-6">
                         <label for="departamento" id="labelDepartamento" data-bs-toggle="tooltip" data-bs-placement="top" title="Campo obrigatório">Departamento:</label>
                         <select id="departamento" name="departamento" class="form-select" aria-label="Default select example">
                             <option th:each="dept : ${departamentos}" th:value="${dept.id}" th:text="${dept.nome}">Open this select menu</option>

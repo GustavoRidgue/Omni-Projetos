@@ -43,8 +43,8 @@
 <article>
     <section>
         <div class="container">
-            <div class="text-center" role="alert">
-                <h5 class="text-azul d-inline-block mt-3">
+            <div class="text-azul text-center" role="alert">
+                <h5 class="d-inline-block mt-3">
                     Alterar projeto "<h5 th:text="${projeto.nome}" class="d-inline-block"></h5>"
                 </h5>
             </div>
@@ -131,10 +131,11 @@
                                 <div class="row justify-content-center g-3 align-items-center">
                                     <input type="hidden" th:value="${projeto.id}" class="form-control" id="id" name="id" placeholder="Digite o nome do seu projeto" minlength="1" maxlength="50">
                                     <div class="col-auto">
-                                        <label for="senha" class="col-form-label">Senha de autorização:</label>
+                                        <label for="projeto" class="col-form-label">Nome do projeto:</label>
                                     </div>
                                     <div class="col-auto">
-                                        <input type="password" name="senha" id="senha" class="form-control" aria-describedby="passwordHelpInline" required>
+                                        <input type="hidden" th:value="${projeto.nome}" class="form-control" id="nome" name="nome">
+                                        <input type="password" name="projeto" id="projeto" class="form-control" aria-describedby="passwordHelpInline" required>
                                     </div>
                                 </div>
                                 <div class="row justify-content-center mt-3">
@@ -150,23 +151,6 @@
         </div>
     </section>
 </article>
-
-<div class="modal fade" id="ajudaModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Ajuda</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                ...
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-            </div>
-        </div>
-    </div>
-</div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"

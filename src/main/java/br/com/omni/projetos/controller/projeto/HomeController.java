@@ -43,6 +43,7 @@ public class HomeController {
         if (id == null) {
             List<Projeto> projetos = projetoRepositoy.findAll();
             model.addAttribute("projetos", projetos);
+            model.addAttribute("subtitulo", "Todos projetos");
 
             return "home";
 
@@ -52,12 +53,12 @@ public class HomeController {
             if (projetos.isPresent()) {
                 Projeto projeto = projetos.get();
                 model.addAttribute("projetos", projeto);
+                model.addAttribute("subtitulo", "Projeto (id " + id + ")");
 
                 return "home";
             }
 
             return "redirect:home";
-
         }
     }
 
@@ -68,6 +69,18 @@ public class HomeController {
         String status = String.valueOf(Regulatorio.valueOf(regulatorio.toUpperCase()));
 
         model.addAttribute("regulatorio", status);
+        model.addAttribute("subtitulo", "Todos projetos (regulatório " + status.toLowerCase() + ")");
+        model.addAttribute("projetos", byRegulatorio);
+
+        return "home";
+    }
+
+    @GetMapping("/dataSolicitacaoDesc")
+    public String dataSolicitacaoDesc(Model model) {
+        List<Projeto> byRegulatorio = projetoRepositoy.findAllBySolicitacaoDesc();
+
+        model.addAttribute("status", true);
+        model.addAttribute("subtitulo", "Todos projetos (Ordenado por mais recentes)");
         model.addAttribute("projetos", byRegulatorio);
 
         return "home";
@@ -128,7 +141,7 @@ public class HomeController {
 
         Optional<Projeto> projeto = projetoRepositoy.findById(request.getId());
 
-        if(projeto.isPresent() && request.getSenha().equals("Omni2020")) {
+        if(projeto.isPresent() && request.getProjeto().equals(request.getNome())) {
             projetoRepositoy.deleteById(request.getId());
             List<Projeto>      projetos      = projetoRepositoy.findAll();
             model.addAttribute("projetos", projetos);

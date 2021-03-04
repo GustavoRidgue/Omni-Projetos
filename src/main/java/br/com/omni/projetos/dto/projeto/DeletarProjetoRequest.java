@@ -6,7 +6,8 @@ import javax.validation.constraints.NotBlank;
 
 public class DeletarProjetoRequest {
     private Long id;
-    private String senha;
+    private String nome;
+    private String projeto;
 
     public Long getId() {
         return id;
@@ -16,21 +17,19 @@ public class DeletarProjetoRequest {
         this.id = id;
     }
 
-    public String getSenha() {
-        return senha;
+    public String getNome() {
+        return nome;
     }
 
-    public void setSenha(String senha) {
-        this.senha = senha;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
-    //    public Projeto toProjeto() {
-//        Projeto projeto = new Projeto();
-//        projeto.setNome(this.nome);
-//        projeto.setAnaliseSituacaoAtual(this.situacaoAtual);
-//        projeto.setDescricaoSituacaoDesejada(this.situacaoDesejada);
-//        projeto.setDescricaoSolucao(this.solucao);
-//
-//        return projeto;
-//    }
+    public String getProjeto() {
+        return projeto;
+    }
+
+    public void setProjeto(String projeto) {
+        this.projeto = projeto;
+    }
 }
