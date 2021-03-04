@@ -13,6 +13,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
 import java.time.LocalDate;
@@ -37,11 +38,11 @@ public class NovoProjetoController {
     }
 
     @PostMapping("novo")
-    public String novo(@Valid NovoProjetoRequest request, BindingResult result, Model model) {
+    public String novo(@Valid NovoProjetoRequest request, BindingResult result, RedirectAttributes redirectAttributes) {
         Optional<Departamento> dept = departamentoRepository.findById(request.getDepartamento());
 
         if (result.hasErrors()) {
-            return "redirect:projeto/criar";
+            return "redirect:/projeto/criar";
         }
 
         if (!dept.isPresent()) {
@@ -63,6 +64,7 @@ public class NovoProjetoController {
 
         projetoRepositoy.save(projeto);
 
+        redirectAttributes.addFlashAttribute("message", "Projeto '" + projeto.getNome() + "' criado com sucesso!");
         return "redirect:/home";
     }
 

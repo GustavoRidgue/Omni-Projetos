@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.transaction.Transactional;
 import javax.validation.Valid;
@@ -46,7 +47,6 @@ public class HomeController {
             model.addAttribute("subtitulo", "Projetos");
 
             return "home";
-
         } else {
             Optional<Projeto> projetos = projetoRepositoy.findById(id);
 
@@ -108,15 +108,16 @@ public class HomeController {
         if(optional.isPresent()) {
             Projeto projeto = optional.get();
             model.addAttribute("projeto", projeto);
+//            model.addAttribute("message", "Teste");
             return "projeto/alterar";
         }
 
-        return "home";
+        return "redirect:home";
     }
 
     @PostMapping("alterado")
     @Transactional
-    public String atualizado(@Valid AtualizarProjetoRequest request, BindingResult result, Model model) {
+    public String atualizado(@Valid AtualizarProjetoRequest request, BindingResult result, RedirectAttributes redirectAttributes) {
         if (result.hasErrors()) {
             return "redirect:alterar/" + request.getId();
         }
@@ -129,22 +130,19 @@ public class HomeController {
         projeto.setDescricaoSituacaoDesejada(request.getSituacaoDesejada());
         projeto.setDescricaoSolucao(request.getSolucao());
 
+        redirectAttributes.addFlashAttribute("message", "Projeto '" + projeto.getNome() + "' alterado com sucesso!");
         return "redirect:/home";
     }
 
     @PostMapping("deletado")
     @Transactional
-    public String deletar(DeletarProjetoRequest request, Model model) {
-//        if (result.hasErrors()) {
-//            return "/projeto/atualizar";
-//        }
-
+    public String deletar(DeletarProjetoRequest request, RedirectAttributes redirectAttributes) {
         Optional<Projeto> projeto = projetoRepositoy.findById(request.getId());
 
         if(projeto.isPresent() && request.getProjeto().equals(request.getNome())) {
             projetoRepositoy.deleteById(request.getId());
-            List<Projeto>      projetos      = projetoRepositoy.findAll();
-            model.addAttribute("projetos", projetos);
+
+            redirectAttributes.addFlashAttribute("message", "Projeto '" + request.getNome() + "' deletado com sucesso!");
 
             return "redirect:/home";
         }
