@@ -43,7 +43,7 @@ public class HomeController {
         if (id == null) {
             List<Projeto> projetos = projetoRepositoy.findAll();
             model.addAttribute("projetos", projetos);
-            model.addAttribute("subtitulo", "Todos projetos");
+            model.addAttribute("subtitulo", "Projetos");
 
             return "home";
 
@@ -69,7 +69,7 @@ public class HomeController {
         String status = String.valueOf(Regulatorio.valueOf(regulatorio.toUpperCase()));
 
         model.addAttribute("regulatorio", status);
-        model.addAttribute("subtitulo", "Todos projetos (regulatório " + status.toLowerCase() + ")");
+        model.addAttribute("subtitulo", "Projetos (regulatório " + status.toLowerCase() + ")");
         model.addAttribute("projetos", byRegulatorio);
 
         return "home";
@@ -80,7 +80,7 @@ public class HomeController {
         List<Projeto> byRegulatorio = projetoRepositoy.findAllBySolicitacaoDesc();
 
         model.addAttribute("status", true);
-        model.addAttribute("subtitulo", "Todos projetos (Ordenado por mais recentes)");
+        model.addAttribute("subtitulo", "Projetos (Ordenado por mais recentes)");
         model.addAttribute("projetos", byRegulatorio);
 
         return "home";
