@@ -38,15 +38,12 @@ public class NovoProjetoController {
     }
 
     @PostMapping("novo")
-    public String novo(@Valid NovoProjetoRequest request, BindingResult result, RedirectAttributes redirectAttributes) {
+    public String novo(@Valid NovoProjetoRequest request, BindingResult result, RedirectAttributes redirectAttributes, Model model) {
         Optional<Departamento> dept = departamentoRepository.findById(request.getDepartamento());
 
-        if (result.hasErrors()) {
+        if (result.hasErrors() || !dept.isPresent()) {
+            model.addAttribute("departamentos", dept);
             return "redirect:/projeto/criar";
-        }
-
-        if (!dept.isPresent()) {
-            return null;
         }
 
         Departamento departamento = dept.get();
@@ -64,7 +61,7 @@ public class NovoProjetoController {
 
         projetoRepositoy.save(projeto);
 
-        redirectAttributes.addFlashAttribute("message", "Projeto '" + projeto.getNome() + "' criado com sucesso!");
+        redirectAttributes.addFlashAttribute("message", "Projeto " + projeto.getNome() + " criado com sucesso!");
         return "redirect:/home";
     }
 

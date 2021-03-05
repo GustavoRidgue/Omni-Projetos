@@ -74,16 +74,20 @@
     <article>
         <section>
             <div class="container">
-                <div id="msg-sucesso" th:if="${message}" th:text="${message}" class="alert alert-success">
-                    <!--                <div th:case="'Success'" class="alert alert-success">-->
-                    <!--                    <strong>Success!</strong> Operation performed successfully.-->
-                    <!--                </div>-->
-                    <!--                <div th:case="'Failed'" class="alert alert-danger">-->
-                    <!--                    <strong>Failure!</strong> Operation failed. Please try again-->
-                    <!--                </div>-->
+                <div class="row justify-content-center mt-3">
+                    <div id="msg-sucesso" th:if="${message}" class="alert alert-success text-start col-auto">
+                        <h6 id="h-msg" th:text="${message}" class="mb-0"></h6>
+                        <!--                <div th:case="'Success'" class="alert alert-success">-->
+                        <!--                    <strong>Success!</strong> Operation performed successfully.-->
+                        <!--                </div>-->
+                        <!--                <div th:case="'Failed'" class="alert alert-danger">-->
+                        <!--                    <strong>Failure!</strong> Operation failed. Please try again-->
+                        <!--                </div>-->
+                    </div>
                 </div>
+
                 <div class="row justify-content-center">
-                    <h4 th:text="${subtitulo}" class="text-white border-top-lr bg-azul text-center p-1 mt-5 mb-0"></h4>
+                    <h4 th:text="${subtitulo}" class="text-white border-top-lr bg-azul text-center p-1 mt-4 mb-0"></h4>
                     <table class="table table-striped">
                         <thead>
                         <tr class="text-azul">
@@ -99,7 +103,7 @@
                             <tr th:each="projeto : ${projetos}">
                                 <td th:text="${projeto.id}"></td>
                                 <td>
-                                    <a class="text-azul" th:href="@{/home/detalhes/{id}(id=${projeto.id})}" th:text="${projeto.nome}"></a>
+                                    <a class="text-azul text-decoration-none" th:href="@{/home/detalhes/{id}(id=${projeto.id})}" th:text="${projeto.nome}"></a>
                                 </td>
                                 <td th:text="${projeto.regulatorio}"></td>
                                 <td th:text="${#temporals.format(projeto.dataSolicitacao, 'dd/MM/yyyy')}"></td>
@@ -161,6 +165,8 @@
     <script>
         setTimeout(function(){
             var msg = document.getElementById("msg-sucesso");
+<!--            var hmsg = document.getElementById("h-msg");-->
+<!--            hmsg.parentNode.classList.add('fadeOut');-->
             msg.parentNode.removeChild(msg);
         }, 5000);
     </script>

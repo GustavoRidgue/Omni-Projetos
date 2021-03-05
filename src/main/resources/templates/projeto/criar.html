@@ -47,7 +47,7 @@
                 <h5 class="text-azul mt-3">Preencha o formulário para criar um novo projeto</h5>
             </div>
 
-            <form th:object="${novoProjetoRequest}" action="/Omni/projeto/novo" method="post">
+            <form th:object="${novoProjetoRequest}" action="novo" method="post">
                 <div class="row">
                     <div class="form-group mt-4 col-md-6">
                         <label for="nome" id="labelProjeto" data-bs-toggle="tooltip" data-bs-placement="top" title="Campo obrigatório; Máximo 50 caractéres">Projeto:</label>

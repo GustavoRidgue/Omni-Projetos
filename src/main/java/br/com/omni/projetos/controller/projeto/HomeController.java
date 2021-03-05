@@ -131,6 +131,7 @@ public class HomeController {
         projeto.setDescricaoSolucao(request.getSolucao());
 
         redirectAttributes.addFlashAttribute("message", "Projeto '" + projeto.getNome() + "' alterado com sucesso!");
+//        redirectAttributes.addFlashAttribute("fadeClass", "fadeOut");
         return "redirect:/home";
     }
 

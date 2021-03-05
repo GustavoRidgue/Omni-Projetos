@@ -81,7 +81,7 @@
                 <tbody>
                 <tr th:each="dept : ${departamentos}">
                     <td th:text="${dept.id}"></td>
-                    <td th:text="${dept.nome}"></td>
+                    <td th:text="${dept.nome}" class="text-azul"></td>
                     <td>
                         <a th:href="@{alterar/{id}(id=${dept.id})}">Alterar departamento</a>
                     </td>
