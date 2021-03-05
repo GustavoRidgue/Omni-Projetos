@@ -4,8 +4,10 @@ import br.com.omni.projetos.model.Projeto;
 import br.com.omni.projetos.model.Regulatorio;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import java.awt.print.Pageable;
 import java.util.List;
 import java.util.Optional;
 
@@ -16,4 +18,10 @@ public interface ProjetoRepositoy extends JpaRepository<Projeto, Long> {
     List<Projeto> findAllBySolicitacaoDesc();
 
     List<Projeto> findByRegulatorio(Regulatorio regulatorio);
+
+    @Query(value = "select * from projeto limit :page, 5", nativeQuery = true)
+    List<Projeto> findAllByPageable(@Param("page") int page);
+
+    @Query(value = "select count(*) from projeto", nativeQuery = true)
+    Integer findRows();
 }

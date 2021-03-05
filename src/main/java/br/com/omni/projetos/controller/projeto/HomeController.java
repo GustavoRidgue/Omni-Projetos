@@ -7,6 +7,9 @@ import br.com.omni.projetos.model.Regulatorio;
 import br.com.omni.projetos.repository.DepartamentoRepository;
 import br.com.omni.projetos.repository.ProjetoRepositoy;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -68,6 +71,21 @@ public class HomeController {
 
         model.addAttribute("regulatorio", status);
         model.addAttribute("subtitulo", "Projetos (regulatório " + status.toLowerCase() + ")");
+        model.addAttribute("projetos", byRegulatorio);
+
+        return "home";
+    }
+
+    @GetMapping("/dados/{page}")
+    public String homePageable(@PathVariable("page") int page, Model model) {
+//        PageRequest paginacao = PageRequest.of(page, 5, Sort.unsorted());
+//        Page<Projeto> byRegulatorio = projetoRepositoy.findAll(paginacao);
+
+        List<Projeto> byRegulatorio = projetoRepositoy.findAllByPageable(page);
+        Integer qntdLinhas = projetoRepositoy.findRows();
+
+        model.addAttribute("regulatorio", "status");
+        model.addAttribute("subtitulo", "Projetos (regulatório)");
         model.addAttribute("projetos", byRegulatorio);
 
         return "home";
