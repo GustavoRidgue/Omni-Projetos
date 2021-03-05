@@ -31,8 +31,6 @@ public class HomeController {
     @Autowired
     private DepartamentoRepository departamentoRepository;
 
-    private static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-
     //ctrl alt c cria variavel
     //ctrl alt v cria variavel
     //ctrl alt o elimina imports
@@ -108,7 +106,6 @@ public class HomeController {
         if(optional.isPresent()) {
             Projeto projeto = optional.get();
             model.addAttribute("projeto", projeto);
-//            model.addAttribute("message", "Teste");
             return "projeto/alterar";
         }
 
@@ -150,22 +147,4 @@ public class HomeController {
 
         return "redirect:alterar/" + request.getId();
     }
-
-//    @PutMapping("/atualizar/{id}")
-//    @Transactional
-//    public String atualizar(@PathVariable("id") Long id, @Valid AtualizarProjetoRequest atualizarProjeto, Model model) {
-//        Optional<Projeto> optional = projetoRepositoy.findById(id);
-//
-//        if(optional.isPresent()) {
-//            Projeto proj = optional.get();
-//            model.addAttribute("projeto", proj);
-//
-//            Projeto projeto = atualizarProjeto.atualizar(id, projetoRepositoy);
-//            model.addAttribute("projetos", optional);
-//
-//            return "home";
-//        }
-//
-//        return "home";
-//    }
 }
