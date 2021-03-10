@@ -1,5 +1,6 @@
 package br.com.omni.projetos.controller.projeto;
 
+import br.com.omni.projetos.controller.Pags;
 import br.com.omni.projetos.dto.projeto.AtualizarProjetoRequest;
 import br.com.omni.projetos.dto.projeto.DeletarProjetoRequest;
 import br.com.omni.projetos.model.Projeto;
@@ -9,19 +10,18 @@ import br.com.omni.projetos.repository.ProjetoRepositoy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.transaction.Transactional;
 import javax.validation.Valid;
-import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -39,11 +39,21 @@ public class HomeController {
     //ctrl alt o elimina imports
     //@Transient faz com que atributo n sera criado do banco de dados
 
-
     @GetMapping
-    public String home(Long id, Model model) {
+    public String home(@RequestParam(required = false) Long id, Model model,
+                       @PageableDefault(sort = "id", direction = Sort.Direction.ASC,
+                               page = 0, size = 5) Pageable pageable) {
         if (id == null) {
-            List<Projeto> projetos = projetoRepositoy.findAll();
+            Page<Projeto> projetos = projetoRepositoy.findAll(pageable);
+
+            List<Pags> pags = new ArrayList<>();
+
+            for (int i = 0; i < projetos.getTotalPages(); i++) {
+                pags.add(new Pags(i));
+            }
+
+
+            model.addAttribute("pags", pags);
             model.addAttribute("projetos", projetos);
             model.addAttribute("subtitulo", "Projetos");
 
@@ -76,20 +86,20 @@ public class HomeController {
         return "home";
     }
 
-    @GetMapping("/dados/{page}")
-    public String homePageable(@PathVariable("page") int page, Model model) {
-//        PageRequest paginacao = PageRequest.of(page, 5, Sort.unsorted());
-//        Page<Projeto> byRegulatorio = projetoRepositoy.findAll(paginacao);
-
-        List<Projeto> byRegulatorio = projetoRepositoy.findAllByPageable(page);
-        Integer qntdLinhas = projetoRepositoy.findRows();
-
-        model.addAttribute("regulatorio", "status");
-        model.addAttribute("subtitulo", "Projetos (regulatório)");
-        model.addAttribute("projetos", byRegulatorio);
-
-        return "home";
-    }
+//    @GetMapping("/dados/{page}")
+//    public String homePageable(@PathVariable("page") int page, Model model) {
+////        PageRequest paginacao = PageRequest.of(page, 5, Sort.unsorted());
+////        Page<Projeto> byRegulatorio = projetoRepositoy.findAll(paginacao);
+//
+//        List<Projeto> byRegulatorio = projetoRepositoy.findAllByPageable(page);
+//        Integer qntdLinhas = projetoRepositoy.findRows();
+//
+//        model.addAttribute("regulatorio", "status");
+//        model.addAttribute("subtitulo", "Projetos (regulatório)");
+//        model.addAttribute("projetos", byRegulatorio);
+//
+//        return "home";
+//    }
 
     @GetMapping("/dataSolicitacaoDesc")
     public String dataSolicitacaoDesc(Model model) {
