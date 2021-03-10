@@ -53,10 +53,12 @@ public class HomeController {
             }
 
 
+            model.addAttribute("subtitulo", "Projetos");
+            model.addAttribute("projetos", projetos);
+
+            model.addAttribute("totalPag", projetos.getTotalPages());
             model.addAttribute("pags", pags);
             model.addAttribute("numberPag", pageable.getPageNumber());
-            model.addAttribute("projetos", projetos);
-            model.addAttribute("subtitulo", "Projetos");
 
             return "home";
         } else {
