@@ -42,7 +42,7 @@ public class HomeController {
     @GetMapping
     public String home(@RequestParam(required = false) Long id, Model model,
                        @PageableDefault(sort = "id", direction = Sort.Direction.ASC,
-                               page = 0, size = 5) Pageable pageable) {
+                               page = 0, size = 2) Pageable pageable) {
         if (id == null) {
             Page<Projeto> projetos = projetoRepositoy.findAll(pageable);
 
@@ -54,6 +54,7 @@ public class HomeController {
 
 
             model.addAttribute("pags", pags);
+            model.addAttribute("numberPag", pageable.getPageNumber());
             model.addAttribute("projetos", projetos);
             model.addAttribute("subtitulo", "Projetos");
 
