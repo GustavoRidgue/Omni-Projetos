@@ -18,10 +18,4 @@ public interface ProjetoRepositoy extends JpaRepository<Projeto, Long> {
     List<Projeto> findAllBySolicitacaoDesc();
 
     List<Projeto> findByRegulatorio(Regulatorio regulatorio);
-
-//    @Query(value = "select * from projeto limit :page, 5", nativeQuery = true)
-//    List<Projeto> findAllByPageable(@Param("page") int page);
-//
-//    @Query(value = "select count(*) from projeto", nativeQuery = true)
-//    Integer findRows();
 }

@@ -52,7 +52,6 @@ public class HomeController {
                 pags.add(new Pags(i));
             }
 
-
             model.addAttribute("subtitulo", "Projetos");
             model.addAttribute("projetos", projetos);
 
