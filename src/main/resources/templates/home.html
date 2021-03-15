@@ -74,15 +74,37 @@
     <article>
         <section>
             <div class="container">
+<!--                <div class="row justify-content-center mb-5">-->
+<!--                    <div class="accordion-item col-xs-12 col-6">-->
+<!--                        <h2 class="accordion-header border-buttom" id="headingTwo">-->
+<!--                            <button class="accordion-button collapsed p-1 bg-azul text-white alert-primary border-buttom" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">-->
+<!--                            </button>-->
+<!--                        </h2>-->
+<!--                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">-->
+<!--                            <div class="accordion-body">-->
+<!--                                <form action="/Omni/home?id" method="get" class="d-flex">-->
+<!--                                    <div class="input-group">-->
+<!--                                        <input type="number" name="id" class="form-control" id="validationTooltipUsername" placeholder="ID do projeto" aria-describedby="validationTooltipUsernamePrepend" required>-->
+<!--                                        <div class="invalid-tooltip">-->
+<!--                                            Insira o ID de um projeto.-->
+<!--                                        </div>-->
+<!--                                        <div class="input-group-prepend">-->
+<!--                                            <button type="submit" class="input-group-text border-top-bottom-left-radius btn-laranja" id="validationTooltipUsernamePrepend">-->
+<!--                                                <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor" class="bi bi-search p-1" viewBox="0 0 16 16">-->
+<!--                                                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>-->
+<!--                                                </svg>-->
+<!--                                            </button>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </form>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+
                 <div class="row justify-content-center mt-3">
                     <div id="msg-sucesso" th:if="${message}" class="alert alert-success text-start col-auto">
                         <h6 id="h-msg" th:text="${message}" class="mb-0"></h6>
-                        <!--                <div th:case="'Success'" class="alert alert-success">-->
-                        <!--                    <strong>Success!</strong> Operation performed successfully.-->
-                        <!--                </div>-->
-                        <!--                <div th:case="'Failed'" class="alert alert-danger">-->
-                        <!--                    <strong>Failure!</strong> Operation failed. Please try again-->
-                        <!--                </div>-->
                     </div>
                 </div>
 

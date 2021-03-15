@@ -42,7 +42,7 @@ public class HomeController {
     @GetMapping
     public String home(@RequestParam(required = false) Long id, Model model,
                        @PageableDefault(sort = "id", direction = Sort.Direction.ASC,
-                               page = 0, size = 2) Pageable pageable) {
+                               page = 0, size = 5) Pageable pageable) {
         if (id == null) {
             Page<Projeto> projetos = projetoRepositoy.findAll(pageable);
 
@@ -131,8 +131,8 @@ public class HomeController {
 
     @GetMapping("/alterar/{id}")
     public String paginaAtualizar(@PathVariable("id") Long id, Model model) {
-
         Optional<Projeto> optional = projetoRepositoy.findById(id);
+        
         if(optional.isPresent()) {
             Projeto projeto = optional.get();
             model.addAttribute("projeto", projeto);

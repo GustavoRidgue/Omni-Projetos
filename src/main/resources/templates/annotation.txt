@@ -10,3 +10,29 @@
         </ul>
     </nav>
 </div>
+
+Coloquei o th:object na tag form;
+Coloquei os campos "name" nos inputs
+Coloquei os th:errors="*{}" de baixo dos inputs;
+Coloquei o NotBlank com as mensagens na minha Request do th:object
+Na Controller coloquei a anotação Valid na request que usei pra pegar os valores
+
+
+
+---------------
+
+
+<div class="row">
+    <div class="form-group col-12">
+        <label for="email" id="labelProjeto" data-bs-toggle="tooltip" data-bs-placement="top" title="Campo obrigatório; Máximo 100 caractéres">Email:</label>
+        <input th:field="*{email}" type="email" class="form-control" id="email" placeholder="Digite seu email" minlength="1" maxlength="100">
+    </div>
+
+    <div class="form-group col-12">
+        <label for="email" id="labelProjeto" data-bs-toggle="tooltip" data-bs-placement="top" title="Campo obrigatório; Máximo 20 caractéres">Senha:</label>
+        <input th:field="*{senha}" type="password" class="form-control" id="senha" placeholder="Digite sua senha" minlength="1" maxlength="20">
+    </div>
+</div>
+
+
+-----------
