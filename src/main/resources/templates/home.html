@@ -5,7 +5,7 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-md navbar-dark bg-azul">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-azul">
             <div class="container-fluid">
                 <a class="navbar-brand ml-1" href="/Omni/home">
                     <img src="https://www.bizfacil.com.br/imagens/logo_omni_fundo_azul.png" alt="" width="83" height="43" class="d-inline-block align-top">
@@ -39,7 +39,8 @@
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">
                                     <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
                                     <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
-                                </svg></a>
+                                </svg>
+                            </a>
                         </li>
 <!--                        <li class="nav-item">-->
 <!--                            <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#ajudaModal">-->
@@ -52,13 +53,28 @@
 <!--                        </li>-->
                     </ul>
                     <form action="/Omni/home?id" method="get" class="d-flex">
-                        <div class="input-group">
+<!--                        <div class="input-group">-->
+<!--                            <div class="input-group-prepend">-->
+<!--                                <button type="submit" class="input-group-text btn btn-laranja border-top-bottom-left-radius-1 border-top-bottom-right-radius" id="validationTooltipUsernamePrepend">-->
+<!--                                    <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor" class="bi bi-search p-1" viewBox="0 0 16 16">-->
+<!--                                        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>-->
+<!--                                    </svg>-->
+<!--                                </button>-->
+<!--                            </div>-->
+<!--                            <input type="number" name="id" class="form-control" id="validationTooltipUsername" placeholder="ID do projeto" aria-describedby="validationTooltipUsernamePrepend" required>-->
+<!--                            <div class="invalid-tooltip">-->
+<!--                                Insira o ID de um projeto.-->
+<!--                            </div>-->
+<!--                        </div>-->
+
+                        <div class="input-group width-auto">
                             <input type="number" name="id" class="form-control" id="validationTooltipUsername" placeholder="ID do projeto" aria-describedby="validationTooltipUsernamePrepend" required>
                             <div class="invalid-tooltip">
                                 Insira o ID de um projeto.
                             </div>
+
                             <div class="input-group-prepend">
-                                <button type="submit" class="input-group-text border-top-bottom-left-radius btn-laranja" id="validationTooltipUsernamePrepend">
+                                <button type="submit" class="input-group-text btn-laranja border-top-bottom-left-radius" id="validationTooltipUsernamePrepend">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor" class="bi bi-search p-1" viewBox="0 0 16 16">
                                         <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
                                     </svg>
@@ -66,6 +82,13 @@
                             </div>
                         </div>
                     </form>
+
+                    <a class="nav-link link-info ms-1" href="/Omni/login">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-gear-fill" viewBox="0 0 16 16">
+                            <path d="M9.405 1.05c-.413-1.4-2.397-1.4-2.81 0l-.1.34a1.464 1.464 0 0 1-2.105.872l-.31-.17c-1.283-.698-2.686.705-1.987 1.987l.169.311c.446.82.023 1.841-.872 2.105l-.34.1c-1.4.413-1.4 2.397 0 2.81l.34.1a1.464 1.464 0 0 1 .872 2.105l-.17.31c-.698 1.283.705 2.686 1.987 1.987l.311-.169a1.464 1.464 0 0 1 2.105.872l.1.34c.413 1.4 2.397 1.4 2.81 0l.1-.34a1.464 1.464 0 0 1 2.105-.872l.31.17c1.283.698 2.686-.705 1.987-1.987l-.169-.311a1.464 1.464 0 0 1 .872-2.105l.34-.1c1.4-.413 1.4-2.397 0-2.81l-.34-.1a1.464 1.464 0 0 1-.872-2.105l.17-.31c.698-1.283-.705-2.686-1.987-1.987l-.311.169a1.464 1.464 0 0 1-2.105-.872l-.1-.34zM8 10.93a2.929 2.929 0 1 1 0-5.86 2.929 2.929 0 0 1 0 5.858z"/>
+                        </svg>
+                    </a>
+
                 </div>
             </div>
         </nav>
@@ -74,34 +97,6 @@
     <article>
         <section>
             <div class="container">
-<!--                <div class="row justify-content-center mb-5">-->
-<!--                    <div class="accordion-item col-xs-12 col-6">-->
-<!--                        <h2 class="accordion-header border-buttom" id="headingTwo">-->
-<!--                            <button class="accordion-button collapsed p-1 bg-azul text-white alert-primary border-buttom" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">-->
-<!--                            </button>-->
-<!--                        </h2>-->
-<!--                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">-->
-<!--                            <div class="accordion-body">-->
-<!--                                <form action="/Omni/home?id" method="get" class="d-flex">-->
-<!--                                    <div class="input-group">-->
-<!--                                        <input type="number" name="id" class="form-control" id="validationTooltipUsername" placeholder="ID do projeto" aria-describedby="validationTooltipUsernamePrepend" required>-->
-<!--                                        <div class="invalid-tooltip">-->
-<!--                                            Insira o ID de um projeto.-->
-<!--                                        </div>-->
-<!--                                        <div class="input-group-prepend">-->
-<!--                                            <button type="submit" class="input-group-text border-top-bottom-left-radius btn-laranja" id="validationTooltipUsernamePrepend">-->
-<!--                                                <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor" class="bi bi-search p-1" viewBox="0 0 16 16">-->
-<!--                                                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>-->
-<!--                                                </svg>-->
-<!--                                            </button>-->
-<!--                                        </div>-->
-<!--                                    </div>-->
-<!--                                </form>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-
                 <div class="row justify-content-center mt-3">
                     <div id="msg-sucesso" th:if="${message}" class="alert alert-success text-start col-auto">
                         <h6 id="h-msg" th:text="${message}" class="mb-0"></h6>

@@ -5,54 +5,41 @@
 </head>
 <body>
 <header>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-azul">
-        <div class="container-fluid">
-            <a class="navbar-brand ml-1" href="/Omni/home">
-                <img src="https://www.bizfacil.com.br/imagens/logo_omni_fundo_azul.png" alt="" width="83" height="43" class="d-inline-block align-top">
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item mr-2">
-                        <p class="mb-0 text-light">
-                            Omni Banco & Financeira
-                        </p>
-                    </li>
-                </ul>
+    <div class="container mb-2">
+        <div class="row justify-content-center mt-1">
+            <div class="col-auto ">
+                <a href="/Omni/home">
+                    <img src="https://pagoquandopuder.com.br/wp-content/uploads/2020/10/negociar-divida-omni.png" width="250" height="175" alt="Logo da empresa Omni Banco & Financeira">
+                </a>
             </div>
         </div>
-    </nav>
+    </div>
+
 </header>
 
 <article>
     <section>
         <div class="container">
-            <div class="text-center" role="alert">
-                <h5 class="text-azul mt-3">Preencha o formulário logar no sistema Omni</h5>
+            <div class="text-center">
+                <p class="mt-5 mb-0 fs-5">Entrar no sistema Omni</p>
             </div>
 
             <form action="/Omni/home" method="get">
                 <div class="row justify-content-center">
                     <div class="form-group col-xs-12 col-10 mt-4">
                         <label for="email" id="labelEmail" data-bs-toggle="tooltip" data-bs-placement="top" title="Campo obrigatório; Máximo 100 caractéres">Email:</label>
-                        <input type="email" class="form-control" id="email" placeholder="Digite seu email" minlength="1" maxlength="100">
+                        <input type="email" class="form-control" id="email" placeholder="Digite seu email" minlength="1" maxlength="100" required>
                     </div>
 
                     <div class="form-group col-xs-12 col-10 mt-4">
                         <label for="senha" id="labelSenha" data-bs-toggle="tooltip" data-bs-placement="top" title="Campo obrigatório; Máximo 20 caractéres">Senha:</label>
-                        <input type="password" class="form-control" id="senha" placeholder="Digite sua senha" minlength="1" maxlength="20">
+                        <input type="password" class="form-control" id="senha" placeholder="Digite sua senha" minlength="1" maxlength="20" required>
                     </div>
                 </div>
 
-                <div class="row justify-content-center mt-5">
+                <div class="row justify-content-center mt-4 mb-3">
                     <div class="col-auto">
-                        <button type="submit" class="btn btn-success width-100">Login</button>
-                    </div>
-
-                    <div class="col-auto">
-                        <a class="btn btn-info width-100" href="/Omni/home">Voltar</a>
+                        <button type="submit" class="btn btn-primary width-100">Entrar</button>
                     </div>
                 </div>
             </form>
