@@ -29,15 +29,17 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         http.authorizeRequests()
 //                .antMatchers(HttpMethod.GET, "/home").permitAll()
 //                .antMatchers(HttpMethod.GET, "/home/*").permitAll()
+                .antMatchers(HttpMethod.GET, "/cadastrar").permitAll()
                 .anyRequest().authenticated()
         .and()
                 .formLogin(form -> form
                         .loginPage("/login")
                         .defaultSuccessUrl("/home", true)
-                        .permitAll(true)
+                        .permitAll()
                 )
                 .logout(logout -> logout.logoutUrl("/logout")
                         .logoutSuccessUrl("/home"));
+//                        .permitAll());
     }
 
     //Static resources (img, css, js)
