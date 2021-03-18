@@ -8,15 +8,15 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import javax.validation.constraints.NotBlank;
 
 public class CadastrarRequest {
-    @NotBlank(message = "Campo obrigatório!")
+//    @NotBlank(message = "Campo obrigatório!")
     private String nome;
-    @NotBlank(message = "Campo obrigatório!")
+//    @NotBlank(message = "Campo obrigatório!")
     private String email;
-    @NotBlank (message = "Campo obrigatório!")
+//    @NotBlank (message = "Campo obrigatório!")
     private String senha;
-    @NotBlank (message = "Campo obrigatório!")
+//    @NotBlank (message = "Campo obrigatório!")
     private Long departamento;
-    @NotBlank (message = "Campo obrigatório!")
+//    @NotBlank (message = "Campo obrigatório!")
     private String telefone;
     private String foto;
 
@@ -72,7 +72,7 @@ public class CadastrarRequest {
         Usuario usuario = new Usuario();
         usuario.setNome(this.nome);
         usuario.setEmail(this.email);
-        usuario.setSenha(this.senha);
+        usuario.setSenha(new BCryptPasswordEncoder().encode(this.senha));
         usuario.setTelefone(this.telefone);
         usuario.setFoto(this.foto);
 

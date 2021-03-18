@@ -15,6 +15,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Autowired
     private AutenticacaoService authService;
+
     //Authentication config
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
@@ -26,12 +27,11 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     //Authorization Config
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests()
-//                .antMatchers(HttpMethod.GET, "/home").permitAll()
-//                .antMatchers(HttpMethod.GET, "/home/*").permitAll()
-//                .antMatchers("/usuario/cadastrar").permitAll()
-//                .antMatchers("/usuario/cadastrar/*").permitAll()
-//                .anyRequest().authenticated()
+        http.csrf().disable()
+                .authorizeRequests()
+                .antMatchers("/usuario/cadastrar").permitAll()
+                .antMatchers(HttpMethod.POST, "/usuario/cadastrado").permitAll()
+                .anyRequest().authenticated()
         .and()
                 .formLogin(form -> form
                         .loginPage("/login")
@@ -40,7 +40,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 )
                 .logout(logout -> logout.logoutUrl("/logout")
                         .logoutSuccessUrl("/home"));
-//                        .permitAll());
     }
 
     //Static resources (img, css, js)
@@ -48,4 +47,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     public void configure(WebSecurity web) throws Exception {
 
     }
+
+//    public static void main(String[] args) {
+//        System.out.println(new BCryptPasswordEncoder().encode(""));
+//    }
 }

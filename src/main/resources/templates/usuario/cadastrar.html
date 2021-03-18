@@ -36,7 +36,7 @@
                 <p class="mt-5 mb-0 fs-5 text-azul">Cadastrar no sistema Omni</p>
             </div>
 
-            <form th:object="${cadastrarRequest}" action="usuario/cadastrado" method="post">
+            <form th:object="${cadastrarRequest}" th:action="@{cadastrado}" method="post">
                 <div class="row justify-content-center">
                     <div class="form-group col-12 mt4">
                         <label for="nome" id="labelEmail" data-bs-toggle="tooltip" data-bs-placement="top">Nome de usuario:</label>
@@ -49,8 +49,8 @@
 
                 <div class="row justify-content-center">
                     <div class="form-group col-6 mt-4">
-                        <label for="username" id="labelEmail" data-bs-toggle="tooltip" data-bs-placement="top" title="Campo obrigatório; Máximo 100 caractéres">Email:</label>
-                        <input type="email" class="form-control" id="username" name="username" placeholder="Digite seu email" minlength="1" maxlength="100" required>
+                        <label for="email" id="labelEmail" data-bs-toggle="tooltip" data-bs-placement="top" title="Campo obrigatório; Máximo 100 caractéres">Email:</label>
+                        <input type="email" class="form-control" id="email" name="email" placeholder="Digite seu email" minlength="1" maxlength="100" required>
                     </div>
 
                     <div class="form-group col-6 mt-4">
@@ -76,7 +76,7 @@
                 <div class="row justify-content-center">
                     <div class="form-group col-12 mt-4">
                         <label for="foto" id="labelFoto" data-bs-toggle="tooltip" data-bs-placement="top" title="Campo obrigatório; Máximo 250 caractéres">Foto (opicional):</label>
-                        <input type="text" class="form-control" id="foto" name="foto" placeholder="Digite seu email" minlength="1" maxlength="250" required>
+                        <input type="text" class="form-control" id="foto" name="foto" placeholder="Digite seu email" minlength="1" maxlength="250">
                     </div>
                 </div>
 

@@ -35,14 +35,12 @@ public class CadastrarController {
     public String cadastrar(Model model) {
         List<Departamento> departamentos = departamentoRepository.findAll();
         model.addAttribute("departamentos", departamentos);
-        System.out.println("get");
 
         return "usuario/cadastrar";
     }
 
     @PostMapping("cadastrado")
-    public String cadastrado(@Valid CadastrarRequest request, BindingResult result, RedirectAttributes redirectAttributes, Model model) {
-        System.out.println("post");
+    public String cadastrado(CadastrarRequest request, BindingResult result, RedirectAttributes redirectAttributes, Model model) {
         if (result.hasErrors()) {
             return "redirect:usuario/cadastrar";
         }
@@ -58,7 +56,6 @@ public class CadastrarController {
         usuario.setDepartamento(departamento);
 
         usuarioRepository.save(usuario);
-        System.out.println(usuario.getPassword());
 
 //        redirectAttributes.addFlashAttribute("message", "Projeto '" + usuario.getNome() + "' criado com sucesso!");
         return "redirect:usuario/cadastrar";
