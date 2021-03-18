@@ -23,7 +23,6 @@ import java.util.List;
 import java.util.Optional;
 
 @Controller
-@RequestMapping("usuario")
 public class CadastrarController {
     @Autowired
     private UsuarioRepository usuarioRepository;

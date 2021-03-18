@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <head th:replace="~{geral :: head}"></head>
+</head>
+<body>
+<header>
+    <nav class="navbar navbar-expand-md navbar-dark bg-azul">
+        <div class="container-fluid">
+            <a class="navbar-brand ml-1" href="/Omni/home">
+                <img src="https://www.bizfacil.com.br/imagens/logo_omni_fundo_azul.png" alt="" width="83" height="43" class="d-inline-block align-top">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item mr-2">
+                        <a class="nav-link" href="/Omni/home">
+                            Projetos
+                        </a>
+                    </li>
+                    <li class="nav-item mr-2">
+                        <a class="nav-link" href="/Omni/departamento/todos">
+                            Departamentos
+                        </a>
+                    </li>
+                </ul>
+
+                <a class="nav-link link-info ms-1 active" href="/Omni/usuario/perfil">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-gear-fill" viewBox="0 0 16 16">
+                        <path d="M9.405 1.05c-.413-1.4-2.397-1.4-2.81 0l-.1.34a1.464 1.464 0 0 1-2.105.872l-.31-.17c-1.283-.698-2.686.705-1.987 1.987l.169.311c.446.82.023 1.841-.872 2.105l-.34.1c-1.4.413-1.4 2.397 0 2.81l.34.1a1.464 1.464 0 0 1 .872 2.105l-.17.31c-.698 1.283.705 2.686 1.987 1.987l.311-.169a1.464 1.464 0 0 1 2.105.872l.1.34c.413 1.4 2.397 1.4 2.81 0l.1-.34a1.464 1.464 0 0 1 2.105-.872l.31.17c1.283.698 2.686-.705 1.987-1.987l-.169-.311a1.464 1.464 0 0 1 .872-2.105l.34-.1c1.4-.413 1.4-2.397 0-2.81l-.34-.1a1.464 1.464 0 0 1-.872-2.105l.17-.31c.698-1.283-.705-2.686-1.987-1.987l-.311.169a1.464 1.464 0 0 1-2.105-.872l-.1-.34zM8 10.93a2.929 2.929 0 1 1 0-5.86 2.929 2.929 0 0 1 0 5.858z"/>
+                    </svg>
+                    Configurações
+                </a>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<article>
+    <section>
+        <div class="container">
+            <div class="row justify-content-center mt-4">
+                <div class="col-auto mb-4">
+                    <img class="foto-user img-fluid" src="https://w7.pngwing.com/pngs/81/570/png-transparent-profile-logo-computer-icons-user-user-blue-heroes-logo-thumbnail.png" alt="">
+                </div>
+                <div class="col-auto">
+                    <div>
+                        <h4>Gustavo Ridgue Barbosa de Oliveira</h4>
+                        <h5 class="text-secondary">Desenvolvimento de TI</h5>
+                    </div>
+                    <div class="mt-4">
+                        <div>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="d-inline-block text-azul bi bi-envelope-fill" viewBox="0 0 16 16">
+                                <path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555zM0 4.697v7.104l5.803-3.558L0 4.697zM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757zm3.436-.586L16 11.801V4.697l-5.803 3.546z"/>
+                            </svg>
+                            <p class="fs-5 mb-0 d-inline-block text-break">gustavo.barbosa@omni.com.br</p>
+                        </div>
+                        <div class="d-inline-block text-azul">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-telephone-fill" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"/>
+                            </svg>
+                            <p class="fs-5 mb-0 d-inline-block">11 97975 9508</p>
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <a href="/Omni/perfil/usuario/editar" class="btn btn-primary">
+                            Editar
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                                <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                                <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <hr class="dropdown-divider">
+            <div class="row">
+                <form>
+                    <h4>Configurações:</h4>
+<!--                    <p class="fs-6">Tema escuro:</p>-->
+                    <fieldset class="form-group">
+                        <div class="row">
+                            <legend class="col-form-label col-sm-2 pt-0 fs-5">Tema:</legend>
+                            <div class="col-sm-10">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
+                                    <label class="form-check-label" for="gridRadios1">
+                                        Padrão
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
+                                    <label class="form-check-label" for="gridRadios2">
+                                        Escuro
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <div class="form-group row">
+                        <div class="col-sm-10">
+                            <button type="submit" class="btn btn-primary mt-4">Confirmar</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <hr class="dropdown-divider">
+        </div>
+    </section>
+</article>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+        crossorigin="anonymous"></script>
+
+<script>
+        setTimeout(function(){
+            var msg = document.getElementById("msg-sucesso");
+<!--            var hmsg = document.getElementById("h-msg");-->
+<!--            hmsg.parentNode.classList.add('fadeOut');-->
+            msg.parentNode.removeChild(msg);
+        }, 5000);
+    </script>
+</body>
+</html>
