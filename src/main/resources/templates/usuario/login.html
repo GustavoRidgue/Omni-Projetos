@@ -4,17 +4,11 @@
     <head th:replace="~{geral :: head}"></head>
 </head>
 <body>
-<!--<header>-->
-<!--    <div class="container mb-2">-->
-<!--        <div class="row justify-content-center mt-1">-->
-<!--            <div class="col-auto ">-->
-<!--                <a href="/Omni/home">-->
-<!--                    <img src="https://pagoquandopuder.com.br/wp-content/uploads/2020/10/negociar-divida-omni.png" width="250" height="175" alt="Logo da empresa Omni Banco & Financeira">-->
-<!--                </a>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--</header>-->
+<header>
+    <h1 class="fs-2 mt-4 mb-1 text-center text-azul me-1 ms-1">
+        Bem vindo ao sistema Omni!
+    </h1>
+</header>
 
 <article>
     <section>
@@ -25,21 +19,21 @@
 
             <div class="container mb-2">
                 <div class="row justify-content-center">
-                    <div class="col-auto mt-4">
+                    <div class="col-auto mt-5">
                         <a href="/Omni/home">
-                            <img src="https://pagoquandopuder.com.br/wp-content/uploads/2020/10/negociar-divida-omni.png" width="285" height="250" alt="Logo da empresa Omni Banco & Financeira">
+                            <img src="https://pagoquandopuder.com.br/wp-content/uploads/2020/10/negociar-divida-omni.png" class="login-logo" alt="Logo da empresa Omni Banco & Financeira">
                         </a>
                     </div>
 
                     <div class="col-auto">
                         <form th:action="@{/login}" method="post" class="mb-3">
                             <div class="row justify-content-center">
-                                <div class="form-group col-xs-12 col-10 mt-4">
+                                <div class="form-group col-xs-12 col-10 mt-5">
                                     <label for="username" id="labelEmail" data-bs-toggle="tooltip" data-bs-placement="top" title="Campo obrigatório; Máximo 100 caractéres">Email:</label>
                                     <input type="email" class="form-control" id="username" name="username" placeholder="Digite seu email" minlength="1" maxlength="100" required>
                                 </div>
 
-                                <div class="form-group col-xs-12 col-10 mt-4">
+                                <div class="form-group col-xs-12 col-10 mt-5">
                                     <label for="password" id="labelPassword" data-bs-toggle="tooltip" data-bs-placement="top" title="Campo obrigatório; Máximo 20 caractéres">Senha:</label>
                                     <input type="password" class="form-control" id="password" name="password" placeholder="Digite sua senha" minlength="1" maxlength="20" required>
                                 </div>
@@ -55,7 +49,7 @@
                 </div>
             </div>
             <div class="text-center mb-2">
-                <p>Não possui acesso? <a href="cadastrar">Cadastrar</a></p>
+                <p>Não possui acesso? <a href="usuario/cadastrar">Cadastrar-se</a></p>
             </div>
         </div>
     </section>

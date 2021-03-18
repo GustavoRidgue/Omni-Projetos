@@ -33,10 +33,10 @@
     <section>
         <div class="container">
             <div class="text-center">
-                <p class="mt-5 mb-0 fs-5">Cadastrar no sistema Omni</p>
+                <p class="mt-5 mb-0 fs-5 text-azul">Cadastrar no sistema Omni</p>
             </div>
 
-            <form action="login" method="post">
+            <form th:object="${cadastrarRequest}" action="usuario/cadastrado" method="post">
                 <div class="row justify-content-center">
                     <div class="form-group col-12 mt4">
                         <label for="nome" id="labelEmail" data-bs-toggle="tooltip" data-bs-placement="top">Nome de usuario:</label>
@@ -54,8 +54,8 @@
                     </div>
 
                     <div class="form-group col-6 mt-4">
-                        <label for="password" id="labelPassword" data-bs-toggle="tooltip" data-bs-placement="top" title="Campo obrigatório; Máximo 20 caractéres">Senha:</label>
-                        <input type="password" class="form-control" id="password" name="password" placeholder="Digite sua senha" minlength="1" maxlength="20" required>
+                        <label for="senha" id="labelPassword" data-bs-toggle="tooltip" data-bs-placement="top" title="Campo obrigatório; Máximo 20 caractéres">Senha:</label>
+                        <input type="password" class="form-control" id="senha" name="senha" placeholder="Digite sua senha" minlength="1" maxlength="20" required>
                     </div>
                 </div>
 
