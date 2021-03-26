@@ -9,7 +9,6 @@ import br.com.omni.projetos.repository.DepartamentoRepository;
 import br.com.omni.projetos.repository.ProjetoRepositoy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
@@ -25,6 +24,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * Controller class to list, edit and delete projects.
+ * @author Gustavo Ridgue
+ */
+
 @Controller
 @RequestMapping("home")
 public class HomeController {
@@ -34,15 +38,17 @@ public class HomeController {
     @Autowired
     private DepartamentoRepository departamentoRepository;
 
-    //ctrl alt c cria variavel
-    //ctrl alt v cria variavel
-    //ctrl alt o elimina imports
-    //@Transient faz com que atributo n sera criado do banco de dados
-
+    /**
+     * Method for return all projects by pagination.
+     * @param id Long - project id (optional)
+     * @param pageable Pageable - pageable to controller projects return
+     * @param model Model - add attributes to template
+     * @return String - template HTML name
+     **/
     @GetMapping
-    public String home(@RequestParam(required = false) Long id, Model model,
+    public String home(@RequestParam(required = false) Long id,
                        @PageableDefault(sort = "id", direction = Sort.Direction.ASC,
-                               page = 0, size = 5) Pageable pageable) {
+                               page = 0, size = 5) Pageable pageable, Model model) {
         if (id == null) {
             Page<Projeto> projetos = projetoRepositoy.findAll(pageable);
 
@@ -56,8 +62,8 @@ public class HomeController {
             model.addAttribute("projetos", projetos);
 
             model.addAttribute("totalPag", projetos.getTotalPages());
-            model.addAttribute("pags", pags);
             model.addAttribute("numberPag", pageable.getPageNumber());
+            model.addAttribute("pags", pags);
 
             return "home";
         } else {
@@ -75,7 +81,12 @@ public class HomeController {
         }
     }
 
-
+    /**
+     * Method for return all projects by regulatory.
+     * @param regulatorio String - is or is not regulatory
+     * @param model Model - add attributes to template
+     * @return String - template HTML name
+     **/
     @GetMapping("/regulatorio/{regulatorio}")
     public String regularoio(@PathVariable("regulatorio") String regulatorio, Model model) {
         List<Projeto> byRegulatorio = projetoRepositoy.findByRegulatorio(Regulatorio.valueOf(regulatorio.toUpperCase()));
@@ -88,21 +99,11 @@ public class HomeController {
         return "home";
     }
 
-//    @GetMapping("/dados/{page}")
-//    public String homePageable(@PathVariable("page") int page, Model model) {
-////        PageRequest paginacao = PageRequest.of(page, 5, Sort.unsorted());
-////        Page<Projeto> byRegulatorio = projetoRepositoy.findAll(paginacao);
-//
-//        List<Projeto> byRegulatorio = projetoRepositoy.findAllByPageable(page);
-//        Integer qntdLinhas = projetoRepositoy.findRows();
-//
-//        model.addAttribute("regulatorio", "status");
-//        model.addAttribute("subtitulo", "Projetos (regulatório)");
-//        model.addAttribute("projetos", byRegulatorio);
-//
-//        return "home";
-//    }
-
+    /**
+     * Method for return all projects by dataSolicitacao decreasing.
+     * @param model Model - add attributes to template
+     * @return String - template HTML name
+     **/
     @GetMapping("/dataSolicitacaoDesc")
     public String dataSolicitacaoDesc(Model model) {
         List<Projeto> byRegulatorio = projetoRepositoy.findAllBySolicitacaoDesc();
@@ -114,6 +115,12 @@ public class HomeController {
         return "home";
     }
 
+    /**
+     * Method for get project details page.
+     * @param id Long - project id
+     * @param model Model - add attributes to template
+     * @return String - template HTML name
+     **/
     @GetMapping("/detalhes/{id}")
     public String detalhe(@PathVariable("id") Long id, Model model) {
         Optional<Projeto> projeto = projetoRepositoy.findById(id);
@@ -128,7 +135,12 @@ public class HomeController {
         return "redirect:home";
     }
 
-
+    /**
+     * Method for get alter project page.
+     * @param id Long - project id
+     * @param model Model - add attributes to template
+     * @return String - template HTML name
+     **/
     @GetMapping("/alterar/{id}")
     public String paginaAtualizar(@PathVariable("id") Long id, Model model) {
         Optional<Projeto> optional = projetoRepositoy.findById(id);
@@ -142,6 +154,13 @@ public class HomeController {
         return "redirect:home";
     }
 
+    /**
+     * Method for edit project.
+     * @param request AtualizarProjetoRequest - data to update project
+     * @param result BindingResult - validate if form has errors
+     * @param redirectAttributes RedirectAttributes - add flash attributes to template
+     * @return String - template HTML name
+     **/
     @PostMapping("alterado")
     @Transactional
     public String atualizado(@Valid AtualizarProjetoRequest request, BindingResult result, RedirectAttributes redirectAttributes) {
@@ -162,6 +181,12 @@ public class HomeController {
         return "redirect:/home";
     }
 
+    /**
+     * Method for delete project.
+     * @param request DeletarProjetoRequest - verify if name equals project.name
+     * @param redirectAttributes RedirectAttributes - add flash attributes to template
+     * @return String - template HTML name
+     **/
     @PostMapping("deletado")
     @Transactional
     public String deletar(DeletarProjetoRequest request, RedirectAttributes redirectAttributes) {

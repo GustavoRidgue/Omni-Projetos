@@ -20,6 +20,11 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * Controller class to create projects.
+ * @author Gustavo Ridgue
+ */
+
 @Controller
 @RequestMapping("projeto")
 public class NovoProjetoController {
@@ -29,14 +34,27 @@ public class NovoProjetoController {
     @Autowired
     private DepartamentoRepository departamentoRepository;
 
+    /**
+     * Method for get create project page.
+     * @param model Model - add attributes to template
+     * @return String - template HTML name
+     **/
     @GetMapping("criar")
-    public String criar(Model model, NovoProjetoRequest request) {
+    public String criar(Model model) {
         List<Departamento> departamentos = departamentoRepository.findAll();
         model.addAttribute("departamentos", departamentos);
 
         return "projeto/criar";
     }
 
+    /**
+     * Method for create project.
+     * @param request NovoProjetoRequest - project data to be created
+     * @param result BindingResult - validate if form has errors
+     * @param redirectAttributes RedirectAttributes - add flash attributes to template
+     * @param model Model - add attributes to template
+     * @return String - template HTML name
+     **/
     @PostMapping("novo")
     public String novo(@Valid NovoProjetoRequest request, BindingResult result, RedirectAttributes redirectAttributes, Model model) {
         if (result.hasErrors()) {
