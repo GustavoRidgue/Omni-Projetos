@@ -19,12 +19,23 @@ public class NovoDeptController {
     @Autowired
     private DepartamentoRepository departamentoRepository;
 
+    /**
+     * Method for get create department.
+     * @param request NovoDeptRequest -
+     * @return String - template HTML name
+     **/
     @GetMapping("criar")
-    public String criar(NovoDeptRequest novoDeptRequest, Model model) {
-//        model.addAttribute("msgCriado", "Todos departamentos:");
+    public String criar(NovoDeptRequest request) {
         return "departamento/criar";
     }
 
+    /**
+     * Method for create department.
+     * @param request NovoDeptRequest - data to create department
+     * @param result BindingResult - validate if form has errors
+     * @param model Model - add attributes to template
+     * @return String - template HTML name
+     **/
     @PostMapping("novo")
     public String novo(@Valid NovoDeptRequest request, BindingResult result, Model model) {
         if (result.hasErrors()) {

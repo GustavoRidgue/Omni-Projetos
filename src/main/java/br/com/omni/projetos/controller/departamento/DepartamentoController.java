@@ -25,7 +25,7 @@ public class DepartamentoController {
     private DepartamentoRepository departamentoRepository;
 
     /**
-     * Method for return all departments.
+     * Method for return all departments or a department by the given name.
      * @param nome String - department name (optional)
      * @param model Model - add attributes to template
      * @return String - template HTML name
@@ -52,7 +52,7 @@ public class DepartamentoController {
     }
 
     /**
-     * Method for get alter department page.
+     * Method for get alter department page by the given id.
      * @param id Long - department id
      * @param model Model - add attributes to template
      * @return String - template HTML name

@@ -1,9 +1,6 @@
 package br.com.omni.projetos.dto.projeto;
 
-import br.com.omni.projetos.model.Departamento;
 import br.com.omni.projetos.model.Projeto;
-import br.com.omni.projetos.model.Regulatorio;
-import com.sun.istack.NotNull;
 
 import javax.validation.constraints.NotBlank;
 

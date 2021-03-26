@@ -26,7 +26,7 @@ public class ProjetoRest {
 
     /**
      * Method for return all projects.
-     * @return List<Projeto> - all projects
+     * @return List of Projects - all projects
      **/
     @GetMapping("todos")
     public List<Projeto> getProjetos() {
@@ -46,7 +46,7 @@ public class ProjetoRest {
     /**
      * Method return project by regulatory.
      * @param regulatorio String - is or is not regulatory
-     * @return List<Projeto> - projects that is or is not regulatory
+     * @return List of Projects - projects that is or is not regulatory
      **/
     @GetMapping("regulatorio/{regulatorio}")
     public List<Projeto> regularoio(@PathVariable("regulatorio") String regulatorio) {

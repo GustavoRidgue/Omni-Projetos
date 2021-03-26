@@ -39,7 +39,7 @@ public class HomeController {
     private DepartamentoRepository departamentoRepository;
 
     /**
-     * Method for return all projects by pagination.
+     * Method for return all projects by pagination or a project by the given id.
      * @param id Long - project id (optional)
      * @param pageable Pageable - pageable to controller projects return
      * @param model Model - add attributes to template
@@ -82,7 +82,7 @@ public class HomeController {
     }
 
     /**
-     * Method for return all projects by regulatory.
+     * Method for return all projects by the given regulatory.
      * @param regulatorio String - is or is not regulatory
      * @param model Model - add attributes to template
      * @return String - template HTML name
@@ -116,7 +116,7 @@ public class HomeController {
     }
 
     /**
-     * Method for get project details page.
+     * Method for get project details page by the given id.
      * @param id Long - project id
      * @param model Model - add attributes to template
      * @return String - template HTML name
@@ -136,7 +136,7 @@ public class HomeController {
     }
 
     /**
-     * Method for get alter project page.
+     * Method for get alter project page by the given id.
      * @param id Long - project id
      * @param model Model - add attributes to template
      * @return String - template HTML name

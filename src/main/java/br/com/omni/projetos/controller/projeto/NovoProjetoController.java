@@ -37,10 +37,11 @@ public class NovoProjetoController {
     /**
      * Method for get create project page.
      * @param model Model - add attributes to template
+     * @param request NovoProjetoRequest -
      * @return String - template HTML name
      **/
     @GetMapping("criar")
-    public String criar(Model model) {
+    public String criar(Model model, NovoProjetoRequest request) {
         List<Departamento> departamentos = departamentoRepository.findAll();
         model.addAttribute("departamentos", departamentos);
 

@@ -1,0 +1,12 @@
+br.com.omni.projetos
+br.com.omni.projetos.api
+br.com.omni.projetos.config.security
+br.com.omni.projetos.controller
+br.com.omni.projetos.controller.departamento
+br.com.omni.projetos.controller.projeto
+br.com.omni.projetos.controller.usuario
+br.com.omni.projetos.dto.departamento
+br.com.omni.projetos.dto.projeto
+br.com.omni.projetos.dto.usuario
+br.com.omni.projetos.model
+br.com.omni.projetos.repository
