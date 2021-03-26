@@ -30,7 +30,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         http.csrf().disable()
                 .authorizeRequests()
                 .antMatchers("/cadastrar").permitAll()
-                .antMatchers("/usuario/perfil").permitAll()
                 .antMatchers(HttpMethod.POST, "/cadastrado").permitAll()
                 .anyRequest().authenticated()
         .and()
@@ -48,8 +47,4 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     public void configure(WebSecurity web) throws Exception {
 
     }
-
-//    public static void main(String[] args) {
-//        System.out.println(new BCryptPasswordEncoder().encode(""));
-//    }
 }
