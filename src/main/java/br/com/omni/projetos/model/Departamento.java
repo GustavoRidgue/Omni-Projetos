@@ -5,6 +5,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+/**
+ * Entity to represent the table Departamento.
+ * @author Gustavo Ridgue
+ */
 @Entity
 public class Departamento {
     @Id

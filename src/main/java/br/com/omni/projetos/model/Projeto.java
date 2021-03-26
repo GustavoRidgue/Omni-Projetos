@@ -5,13 +5,16 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import javax.persistence.*;
 import java.time.LocalDate;
 
+/**
+ * Entity to represent the table Projeto.
+ * @author Gustavo Ridgue
+ */
 @Entity
 public class Projeto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nome;
-//    @DateTimeFormat(pattern = "dd/MM/yyyy")
     @JsonFormat(pattern="dd/MM/yyyy")
     private LocalDate dataSolicitacao;
     @ManyToOne

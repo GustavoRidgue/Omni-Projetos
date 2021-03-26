@@ -1,7 +1,9 @@
 package br.com.omni.projetos.dto.departamento;
 
-import javax.validation.constraints.NotBlank;
-
+/**
+ * Data transfer object to update department.
+ * @author Gustavo Ridgue
+ */
 public class AtualizarDeptRequest {
     private Long id;
     private String nome;

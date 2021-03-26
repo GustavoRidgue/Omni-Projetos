@@ -8,13 +8,20 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import java.util.Optional;
-
+/**
+ * API to return all projects.
+ * @author Gustavo Ridgue
+ */
 @Service
 public class AutenticacaoService implements UserDetailsService {
     @Autowired
     private UsuarioRepository usuarioRepository;
 
+    /**
+     * Method to return user by the given username.
+     * @param username String - Username to load user
+     * @return UserDetails - Provides core user information
+     **/
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         return usuarioRepository.findByEmail(username).orElseThrow(() -> new UsernameNotFoundException("Dados Inválidos"));

@@ -13,10 +13,9 @@ import java.util.List;
 import java.util.Optional;
 
 /**
- * API for return projects data.
+ * API to return projects data.
  * @author Gustavo Ridgue
  */
-
 @RestController
 @RequestMapping("/api/projetos")
 public class ProjetoRest {
@@ -25,7 +24,7 @@ public class ProjetoRest {
     private ProjetoRepositoy projetoRepositoy;
 
     /**
-     * Method for return all projects.
+     * Method to return all projects.
      * @return List of Projects - all projects
      **/
     @GetMapping("todos")
@@ -34,7 +33,7 @@ public class ProjetoRest {
     }
 
     /**
-     * Method return project indicated by id in parameter.
+     * Method to return project by the given id.
      * @param id Long - project id
      * @return Projeto - projeto
      **/
@@ -45,7 +44,7 @@ public class ProjetoRest {
 
     /**
      * Method return project by regulatory.
-     * @param regulatorio String - is or is not regulatory
+     * @param regulatorio String - covert to Regulatorio enum
      * @return List of Projects - projects that is or is not regulatory
      **/
     @GetMapping("regulatorio/{regulatorio}")

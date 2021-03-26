@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.Optional;
 
 /**
- * Controller class to list and alter.
+ * Controller class to list and alter departments.
  * @author Gustavo Ridgue
  */
 
@@ -25,9 +25,9 @@ public class DepartamentoController {
     private DepartamentoRepository departamentoRepository;
 
     /**
-     * Method for return all departments or a department by the given name.
+     * Method to return all departments or a department by the given name.
      * @param nome String - department name (optional)
-     * @param model Model - add attributes to template
+     * @param model Model - add attributes to template HTML
      * @return String - template HTML name
      **/
     @GetMapping("/todos")
@@ -46,15 +46,14 @@ public class DepartamentoController {
 
                 return "departamento/todos";
             }
-
             return "redirect:/departamento/todos";
         }
     }
 
     /**
-     * Method for get alter department page by the given id.
+     * Method to get alter department page by the given id.
      * @param id Long - department id
-     * @param model Model - add attributes to template
+     * @param model Model - add attributes to template HTML
      * @return String - template HTML name
      **/
     @GetMapping("/alterar/{id}")
@@ -72,7 +71,7 @@ public class DepartamentoController {
     }
 
     /**
-     * Method for edit department.
+     * Method to edit department.
      * @param request AtualizarDeptRequest - data to update department
      * @param result BindingResult - validate if form has errors
      * @return String - template HTML name

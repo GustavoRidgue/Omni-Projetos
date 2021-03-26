@@ -1,9 +1,12 @@
 package br.com.omni.projetos.dto.projeto;
 
 import br.com.omni.projetos.model.Projeto;
-
 import javax.validation.constraints.NotBlank;
 
+/**
+ * Data transfer object to create project.
+ * @author Gustavo Ridgue
+ */
 public class NovoProjetoRequest {
     @NotBlank(message = "Campo obrigatório!")
     private String nome;
@@ -64,6 +67,10 @@ public class NovoProjetoRequest {
         this.regulatorio = regulatorio;
     }
 
+    /**
+     * Method to return a new project by the given NovoProjetoRequest class attributes.
+     * @return Projeto - project
+     **/
     public Projeto toProjeto() {
         Projeto projeto = new Projeto();
         projeto.setNome(this.nome);

@@ -39,10 +39,10 @@ public class HomeController {
     private DepartamentoRepository departamentoRepository;
 
     /**
-     * Method for return all projects by pagination or a project by the given id.
+     * Method to return all projects by pagination or a project by the given id.
      * @param id Long - project id (optional)
-     * @param pageable Pageable - pageable to controller projects return
-     * @param model Model - add attributes to template
+     * @param pageable Pageable - pageable to control projects pagination
+     * @param model Model - add attributes to template HTML
      * @return String - template HTML name
      **/
     @GetMapping
@@ -52,10 +52,10 @@ public class HomeController {
         if (id == null) {
             Page<Projeto> projetos = projetoRepositoy.findAll(pageable);
 
-            List<Pags> pags = new ArrayList<>();
+            List<Integer> pags = new ArrayList<>();
 
             for (int i = 0; i < projetos.getTotalPages(); i++) {
-                pags.add(new Pags(i));
+                pags.add(1);
             }
 
             model.addAttribute("subtitulo", "Projetos");
@@ -82,9 +82,9 @@ public class HomeController {
     }
 
     /**
-     * Method for return all projects by the given regulatory.
-     * @param regulatorio String - is or is not regulatory
-     * @param model Model - add attributes to template
+     * Method to return all projects by the given regulatory.
+     * @param regulatorio String - covert to a Regulatorio enum
+     * @param model Model - add attributes to template HTML
      * @return String - template HTML name
      **/
     @GetMapping("/regulatorio/{regulatorio}")
@@ -100,8 +100,8 @@ public class HomeController {
     }
 
     /**
-     * Method for return all projects by dataSolicitacao decreasing.
-     * @param model Model - add attributes to template
+     * Method to return all projects by dataSolicitacao decreasing.
+     * @param model Model - add attributes to template HTML
      * @return String - template HTML name
      **/
     @GetMapping("/dataSolicitacaoDesc")
@@ -116,9 +116,9 @@ public class HomeController {
     }
 
     /**
-     * Method for get project details page by the given id.
+     * Method to get project details page by the given id.
      * @param id Long - project id
-     * @param model Model - add attributes to template
+     * @param model Model - add attributes to template HTML
      * @return String - template HTML name
      **/
     @GetMapping("/detalhes/{id}")
@@ -136,9 +136,9 @@ public class HomeController {
     }
 
     /**
-     * Method for get alter project page by the given id.
+     * Method to get alter project page by the given id.
      * @param id Long - project id
-     * @param model Model - add attributes to template
+     * @param model Model - add attributes to template HTML
      * @return String - template HTML name
      **/
     @GetMapping("/alterar/{id}")
@@ -155,10 +155,10 @@ public class HomeController {
     }
 
     /**
-     * Method for edit project.
-     * @param request AtualizarProjetoRequest - data to update project
+     * Method to edit project.
+     * @param request AtualizarProjetoRequest - project data to update project
      * @param result BindingResult - validate if form has errors
-     * @param redirectAttributes RedirectAttributes - add flash attributes to template
+     * @param redirectAttributes RedirectAttributes - add flash attributes to template HTML
      * @return String - template HTML name
      **/
     @PostMapping("alterado")
@@ -182,8 +182,8 @@ public class HomeController {
     }
 
     /**
-     * Method for delete project.
-     * @param request DeletarProjetoRequest - verify if name equals project.name
+     * Method to delete project.
+     * @param request DeletarProjetoRequest - verify if name field equals project.name
      * @param redirectAttributes RedirectAttributes - add flash attributes to template
      * @return String - template HTML name
      **/

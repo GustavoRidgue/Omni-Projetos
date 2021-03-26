@@ -1,9 +1,9 @@
 package br.com.omni.projetos.dto.projeto;
 
-import br.com.omni.projetos.model.Projeto;
-
-import javax.validation.constraints.NotBlank;
-
+/**
+ * Data transfer object to delete project.
+ * @author Gustavo Ridgue
+ */
 public class DeletarProjetoRequest {
     private Long id;
     private String nome;

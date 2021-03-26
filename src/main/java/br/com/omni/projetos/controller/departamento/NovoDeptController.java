@@ -20,7 +20,7 @@ public class NovoDeptController {
     private DepartamentoRepository departamentoRepository;
 
     /**
-     * Method for get create department.
+     * Method to get create department.
      * @param request NovoDeptRequest -
      * @return String - template HTML name
      **/
@@ -30,10 +30,10 @@ public class NovoDeptController {
     }
 
     /**
-     * Method for create department.
+     * Method to create department.
      * @param request NovoDeptRequest - data to create department
      * @param result BindingResult - validate if form has errors
-     * @param model Model - add attributes to template
+     * @param model Model - add attributes to template HTML
      * @return String - template HTML name
      **/
     @PostMapping("novo")

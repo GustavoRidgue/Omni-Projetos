@@ -1,10 +1,12 @@
 package br.com.omni.projetos.dto.projeto;
 
 import br.com.omni.projetos.model.Projeto;
-import br.com.omni.projetos.repository.ProjetoRepositoy;
-
 import javax.validation.constraints.NotBlank;
 
+/**
+ * Data transfer object to update project.
+ * @author Gustavo Ridgue
+ */
 public class AtualizarProjetoRequest {
     private Long id;
     @NotBlank(message = "Campo obrigatório!")
@@ -56,16 +58,10 @@ public class AtualizarProjetoRequest {
         this.solucao = solucao;
     }
 
-//    public Projeto atualizar(Long id, ProjetoRepositoy projetoRepositoy) {
-//        Projeto projeto = projetoRepositoy.getOne(id);
-//        projeto.setNome(this.nome);
-//        projeto.setAnaliseSituacaoAtual(this.situacaoAtual);
-//        projeto.setDescricaoSituacaoDesejada(this.situacaoDesejada);
-//        projeto.setDescricaoSolucao(this.solucao);
-//
-//        return projeto;
-//    }
-
+    /**
+     * Method to return a new project by the given AtualizarProjetoRequest class attributes.
+     * @return Projeto - project
+     **/
     public Projeto toProjeto() {
         Projeto projeto = new Projeto();
         projeto.setNome(this.nome);

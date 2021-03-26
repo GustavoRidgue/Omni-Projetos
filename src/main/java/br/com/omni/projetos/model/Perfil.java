@@ -7,6 +7,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+/**
+ * Entity to represent the table Perfil.
+ * @author Gustavo Ridgue
+ */
+
 @Entity
 public class Perfil implements GrantedAuthority {
     @Id

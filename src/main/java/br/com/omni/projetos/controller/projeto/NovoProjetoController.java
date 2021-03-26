@@ -35,8 +35,8 @@ public class NovoProjetoController {
     private DepartamentoRepository departamentoRepository;
 
     /**
-     * Method for get create project page.
-     * @param model Model - add attributes to template
+     * Method to get create project page.
+     * @param model Model - add attributes to template HTML
      * @param request NovoProjetoRequest -
      * @return String - template HTML name
      **/
@@ -49,11 +49,11 @@ public class NovoProjetoController {
     }
 
     /**
-     * Method for create project.
+     * Method to create project.
      * @param request NovoProjetoRequest - project data to be created
      * @param result BindingResult - validate if form has errors
-     * @param redirectAttributes RedirectAttributes - add flash attributes to template
-     * @param model Model - add attributes to template
+     * @param redirectAttributes RedirectAttributes - add flash attributes to template HTML
+     * @param model Model - add attributes to template HTML
      * @return String - template HTML name
      **/
     @PostMapping("novo")

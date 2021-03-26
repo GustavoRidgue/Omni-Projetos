@@ -10,6 +10,11 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
+/**
+ * Set security configurations.
+ * @author Gustavo Ridgue
+ */
+
 @EnableWebSecurity
 @Configuration
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
@@ -29,10 +34,10 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable()
                 .authorizeRequests()
-//                .antMatchers("/cadastrar").permitAll()
-//                .antMatchers(HttpMethod.POST, "/cadastrado").permitAll()
-//                .anyRequest().authenticated()
-                .anyRequest().permitAll()
+                .antMatchers("/cadastrar").permitAll()
+                .antMatchers(HttpMethod.POST, "/cadastrado").permitAll()
+                .anyRequest().authenticated()
+//                .anyRequest().permitAll()
         .and()
                 .formLogin(form -> form
                         .loginPage("/login")

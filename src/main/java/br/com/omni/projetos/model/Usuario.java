@@ -8,6 +8,11 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+/**
+ * Entity to represent the table Usuario.
+ * @author Gustavo Ridgue
+ */
+
 @Entity
 public class Usuario implements UserDetails {
     @Id

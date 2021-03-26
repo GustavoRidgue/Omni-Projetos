@@ -1,11 +1,8 @@
 package br.com.omni.projetos.dto.usuario;
 
-import br.com.omni.projetos.model.Departamento;
-import br.com.omni.projetos.model.Projeto;
 import br.com.omni.projetos.model.Usuario;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
-import javax.validation.constraints.NotBlank;
 
 public class CadastrarRequest {
 //    @NotBlank(message = "Campo obrigatório!")
@@ -68,6 +65,10 @@ public class CadastrarRequest {
         this.foto = foto;
     }
 
+    /**
+     * Method to return a new project with the CadastrarRequest class attributes.
+     * @return Projeto - project
+     **/
     public Usuario toUsuario() {
         Usuario usuario = new Usuario();
         usuario.setNome(this.nome);
